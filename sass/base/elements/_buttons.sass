@@ -1,0 +1,56 @@
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"]
+	border: 1px solid
+	border-color: $color__border-button
+	border-radius: 3px
+	background: $color__background-button
+	color: rgba(0, 0, 0, 0.8)
+	line-height: 1
+	padding: 0.6em 1em 0.4em
+
+	&:hover
+		border-color: $color__border-button-hover
+
+
+	&:active,
+	&:focus
+		border-color: $color__border-button-focus
+
+
+// Div buttons
+
+.wfa__btn
+	margin: 3rem
+	padding: 1.2rem 3rem
+	border-radius: 12px
+	@include default-link-trans
+
+.wfa__btn--bright
+	background-color: $red
+	border: 2px solid $red
+	color: $pure-white
+
+	&:hover,
+	&:active,
+	&:focus
+		background-color: transparent
+		color: $red
+
+.wfa__btn--mute
+	background-color: $royal-blue
+	border: 2px solid $royal-blue
+
+	&:hover,
+	&:active,
+	&:focus
+		background-color: $royal-blue
+		color: $pure-white
+
+.wfa__btn--solid
+	//border: none
+
+.wfa__btn--wire
+	background-color: transparent
+	color: $royal-blue

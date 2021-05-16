@@ -1,0 +1,44 @@
+// Center block
+@mixin center-block
+	display: block
+	margin-left: auto
+	margin-right: auto
+
+
+// Column width with margin
+@mixin column-width($numberColumns: 3)
+	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns )
+
+@mixin default-trans
+	transition: all .6s ease-in-out
+
+
+@mixin default-link-trans
+	transition: all .2s ease-in-out
+
+
+@mixin ani_zoom_in
+	@keyframes ani_zoom_in
+		0%
+			transform: scale(0) translateX(0)
+			opacity: 0
+
+		100%
+			transform: scale(1) translateX(0)
+			opacity: 1
+
+
+@mixin ani_zoom_out
+	@keyframes ani_zoom_out
+		0%
+			transform: scale(1) translateX(0)
+			opacity: 1
+
+		100%
+			transform: scale(0) translateX(0)
+			opacity: 0
+
+
+@mixin hero_img_shadow( $color )
+	box-shadow: 14px 16px 0 0px lighten($color , 0)
+	border: solid 2px $color

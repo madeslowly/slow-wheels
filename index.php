@@ -22,6 +22,7 @@ get_header();
 
 			if ( is_home() && ! is_front_page() ) :
 				?>
+
 				<header>
 					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 				</header>
@@ -45,7 +46,7 @@ get_header();
 
 		else :
 
-			get_template_part( 'template-parts/content', 'none' );
+			get_template_part( 'template-parts/content-landing', 'none' );
 
 		endif;
 		?>

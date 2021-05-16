@@ -15,7 +15,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main not__home">
 
 		<?php
 		while ( have_posts() ) :
