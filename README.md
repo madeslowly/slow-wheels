@@ -1,6 +1,9 @@
 Slow Wheels Wordpress Theme
 ===
 
+This is a wordpress teheme developed for [Wheels for All Oxford](https://wfaoxford.org/). The theme is based on the scaffolding of [`_s`](https://underscores.me/).
+
+
 Hi. I'm a starter theme called `_s`, or `underscores`, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
 
 My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you're designing your awesome theme. Here are some of the other more interesting things you'll find here:
