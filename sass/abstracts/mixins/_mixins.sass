@@ -10,7 +10,7 @@
 	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns )
 
 @mixin default-trans
-	transition: all .6s ease-in-out
+	transition: all .8s ease-in-out
 
 
 @mixin default-link-trans
@@ -20,7 +20,7 @@
 @mixin ani_zoom_in
 	@keyframes ani_zoom_in
 		0%
-			transform: scale(0) translateX(0)
+			transform: scale(0.5) translateX(0)
 			opacity: 0
 
 		100%
@@ -31,11 +31,11 @@
 @mixin ani_zoom_out
 	@keyframes ani_zoom_out
 		0%
-			transform: scale(1) translateX(0)
+			//transform: scale(1) translateX(0)
 			opacity: 1
 
 		100%
-			transform: scale(0) translateX(0)
+			//transform: scale(0) translateX(0)
 			opacity: 0
 
 

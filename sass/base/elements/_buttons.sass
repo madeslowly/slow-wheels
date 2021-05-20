@@ -4,19 +4,23 @@ input[type="reset"],
 input[type="submit"]
 	border: 1px solid
 	border-color: $color__border-button
-	border-radius: 3px
+	// overriding plugins like webba
+	border-radius: 12px!important
 	background: $color__background-button
 	color: rgba(0, 0, 0, 0.8)
 	line-height: 1
 	padding: 0.6em 1em 0.4em
+	@include default-link-trans
 
 	&:hover
 		border-color: $color__border-button-hover
+		opacity: .7!important
 
 
 	&:active,
 	&:focus
 		border-color: $color__border-button-focus
+		opacity: .7!important
 
 
 // Div buttons

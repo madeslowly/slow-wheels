@@ -11,39 +11,44 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
+	<footer class="site-footer">
 		<div class="footer-naviagtion">
 			<div class="sitemap">
-				<h4> Sitemap </h4>
-		<?php
-		wp_nav_menu(
-			array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			)
-		);
-		?>
-	</div>
+				<h3> Sitemap </h3>
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'primary-menu',
+					)
+				);
+				?>
+			</div>
 
-	<div class="downloadables">
-		<h4> Downloadable Content </h4>
-		<?php
-		wp_nav_menu(
-			array(
-				'menu_id'        => 'downloadable-content',
-			)
-		);
-		?>
+			<div class="downloadables">
+				<h3> Downloadable Content </h3>
+				<?php
+				wp_nav_menu(
+					array(
+						'menu_id'        => 'downloadable-content',
+					)
+				);
+				?>
 
-	</div>
-	</div>
-		<div class="site-info">
-			<p>&copy; <?php echo get_bloginfo( 'name' ); ?> | <?php
-			/* translators: 1: Theme name, 2: Theme author. */
-			printf( esc_html__( '%1$s by %2$s.', 'slow-wheels' ), '<a href="https://github.com/madeslowly/slow-wheels">Slow Wheels</a>', '<a href="http://madeslowly.co.uk">Made 	Slowly</a>' );
-				?></p>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+			</div>
+			<div class="sponsors">
+				<h3>Our Friends and Sponsors</h3>
+			<?php echo do_shortcode('[featured_image_gallery link="none" size="medium"] '); ?>
+</div>
+
+			</div>
+				<div class="site-info">
+					<p>&copy; <?php echo get_bloginfo( 'name' ); ?> | <?php
+					/* translators: 1: Theme name, 2: Theme author. */
+					printf( esc_html__( '%1$s by %2$s.', 'slow-wheels' ), '<a href="https://github.com/madeslowly/slow-wheels">Slow Wheels</a>', '<a href="http://madeslowly.co.uk">Made 	Slowly</a>' );
+						?></p>
+				</div><!-- .site-info -->
+	</footer>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

@@ -194,8 +194,31 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-/* Change image upload max size */
+/**
+ * Customize Image Gallery Control
+ * <?php the_featured_image_gallery(); ?>
+ * see https://make.xwp.co/2016/08/12/image-gallery-control-for-the-customizer/
+ */
+function the_featured_image_gallery( $atts = array() ) {
+    $setting_id = 'featured_image_gallery';
+    $ids_array = get_theme_mod( $setting_id );
+    if ( is_array( $ids_array ) && ! empty( $ids_array ) ) {
+        $atts['ids'] = implode( ' ', $ids_array );
+        echo gallery_shortcode( $atts );
+    }
+}
 
-@ini_set( 'upload_max_size' , '64M' );
-@ini_set( 'post_max_size', '64M');
-@ini_set( 'max_execution_time', '300' );
+/**
+ * Customize Image Gallery Control
+ * Shorcode [featured_image_gallery]
+ * see https://make.xwp.co/2016/08/12/image-gallery-control-for-the-customizer/
+ */
+function featured_image_gallery_shortcode( $atts ) {
+    $ids_array = get_theme_mod( 'featured_image_gallery' );
+    if ( is_array( $ids_array ) && ! empty( $ids_array ) ) {
+        $ids = implode( ',', $ids_array );
+        $atts = ['include' => $ids ];
+    }
+    return gallery_shortcode( $atts );
+}
+add_shortcode( 'featured_image_gallery', 'featured_image_gallery_shortcode' );

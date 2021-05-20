@@ -16,7 +16,7 @@ get_header();
 
 		<div class="w__100 hero__container">
 			<div class="hero__img">
-				<div class="hero_img_default visible"></div>
+				<div class="hero_img_default visible" style="background-image: url('<?php echo get_theme_mod('landing_page_img_default_setting'); ?>')"></div>
 				<div class="hero_img_1 " style="background-image: url('<?php echo get_theme_mod('landing_page_img_1_setting'); ?>')"></div>
 				<div class="hero_img_2 " style="background-image: url('<?php echo get_theme_mod('landing_page_img_2_setting'); ?>')"></div>
 				<div class="hero_img_3 " style="background-image: url('<?php echo get_theme_mod('landing_page_img_3_setting'); ?>')"></div>

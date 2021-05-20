@@ -1,0 +1,55 @@
+.site-footer
+	display: block
+	justify-content: center
+	align-items: center
+	padding: 0 5vw
+	background-color: $royal-blue
+
+	& > *
+		color: $pure-white
+
+	.footer-naviagtion
+		display: flex
+		flex-direction: row
+		padding: 5rem 0
+		justify-content: space-around
+		flex-wrap: wrap
+
+		ul
+			list-style: none
+			padding: 0 0 0 .6rem
+			margin: 0
+
+		li
+			margin: .6rem 0
+
+		.sub-menu
+			//display: none
+			text-indent: .6rem
+
+	.site-info
+		display: flex
+		flex-direction: row
+		justify-content: center
+		align-items: center
+
+	.sitemap,
+	.downloadables
+		//width: 20%
+
+	.sponsors
+		//width: 60%
+
+		img
+			object-fit: contain!important
+			width: 200px!important
+			filter: brightness(0) invert(1)
+			opacity: .8
+			padding: 1rem
+			border-radius: 16px
+			@include default-link-trans
+
+			&:hover
+				filter: none
+				opacity: 1
+				background-color: lighten($royal-blue, 80)
