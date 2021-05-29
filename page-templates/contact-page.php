@@ -33,8 +33,6 @@ get_header();
 			</div>
 
 
-
-
 			<div class="wfa__contact--address">
 				<h2 class="wfa__header" ><?php echo get_theme_mod( 'contact_page_address_header_setting'); ?></h2>
 				<p><?php echo get_theme_mod( 'contact_page_address_line_1_setting'); ?></p>

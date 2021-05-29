@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying the news feed, called by home.php
+ * Template part for displaying the news feed, called by index.php
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *

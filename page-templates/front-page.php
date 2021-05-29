@@ -1,6 +1,9 @@
 <?php
 /**
+ * Template Name: Front Page
  * The template for displaying homepage
+ *
+ * We could put this in root and wordpress would defualt to it for the page that is set as front, but this is a bit tidier
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
