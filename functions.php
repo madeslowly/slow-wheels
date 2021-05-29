@@ -155,9 +155,14 @@ function slow_wheels_scripts() {
 	wp_enqueue_script( 'img-swapper', get_template_directory_uri() . '/js/img_swapper.js', array(), _S_VERSION, true );
 	}
 
-	if ( is_page_template( 'gallery-page.php' ) ) {
+	/* If we have a gallery run the script to ani each image in */
+	if ( strpos( $page->page_content,'[gallery') === true) {
 	wp_enqueue_script( 'add-gallery-class', get_template_directory_uri() . '/js/gallery_add_class.js', array(), _S_VERSION, true );
 	}
+
+  if ( is_page_template( 'gallery-page.php' ) ) {
+      wp_enqueue_script( 'add-gallery-class', get_template_directory_uri() . '/js/gallery_add_class.js', array(), _S_VERSION, true );
+  }
 
 	wp_enqueue_script( 'aos-script', 'https://unpkg.com/aos@next/dist/aos.js');
 
@@ -222,3 +227,249 @@ function featured_image_gallery_shortcode( $atts ) {
     return gallery_shortcode( $atts );
 }
 add_shortcode( 'featured_image_gallery', 'featured_image_gallery_shortcode' );
+
+
+function wfa_custom_new_menu() {
+  register_nav_menus(
+    array(
+      'sitemap' => __( 'Sitemap' ),
+      'downloadable-content' => __( 'Downloadable Content' )
+    )
+  );
+}
+
+add_action( 'init', 'wfa_custom_new_menu' );
+
+
+function my_login_logo() { ?>
+  <style type="text/css">
+		#login h1 a, .login h1 a {
+			display: inline-block;
+    	background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/defaults/images/wfa_logo.png);
+			background-repeat: no-repeat;
+    }
+  </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+
+add_action( 'init', 'cp_change_post_object' );
+// Change dashboard Posts to News
+function cp_change_post_object() {
+    $get_post_type = get_post_type_object('post');
+    $labels = $get_post_type->labels;
+        $labels->name = 'News';
+        $labels->singular_name = 'News';
+        $labels->add_new = 'Add News';
+        $labels->add_new_item = 'Add News';
+        $labels->edit_item = 'Edit News';
+        $labels->new_item = 'News';
+        $labels->view_item = 'View News';
+        $labels->search_items = 'Search News';
+        $labels->not_found = 'No News found';
+        $labels->not_found_in_trash = 'No News found in Trash';
+        $labels->all_items = 'All News';
+        $labels->menu_name = 'News';
+        $labels->name_admin_bar = 'News';
+}
+
+// Truncate post thumb text, use echo excerpt(30) in place of the_excerpt() or the_content()
+function excerpt($limit) {
+  $excerpt = explode(' ', get_the_excerpt(), $limit);
+  if (count($excerpt)>=$limit) {
+    array_pop($excerpt);
+    $excerpt = implode(" ",$excerpt).'...';
+  } else {
+    $excerpt = implode(" ",$excerpt);
+  }
+  $excerpt = preg_replace('`[[^]]*]`','',$excerpt);
+  return $excerpt;
+}
+
+function content($limit) {
+  $content = explode(' ', get_the_content(), $limit);
+  if (count($content)>=$limit) {
+    array_pop($content);
+    $content = implode(" ",$content).'...';
+  } else {
+    $content = implode(" ",$content);
+  }
+  $content = preg_replace('/[.+]/','', $content);
+  $content = apply_filters('the_content', $content);
+  $content = str_replace(']]>', ']]>', $content);
+  return $content;
+}
+
+
+if( ! function_exists( 'sw_comment' ) ) {
+  /**
+   * Template for comments and pingbacks.
+   *
+   * To override this walker in a child theme without modifying the comments template
+   * simply create your own sw_comment(), and that function will be used instead.
+   *
+   * Used as a callback by wp_list_comments() for displaying the comments.
+   *
+   * @since 1.0
+   */
+  function sw_comment( $comment, $args, $depth ) {
+  	$GLOBALS['comment'] = $comment;
+    switch ( $comment->comment_type ) {
+      case 'pingback':
+      case 'trackback':
+
+      break;
+      default: // Normal Comments
+        global $post; ?>
+        <div id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
+				  <div class="comment_author-ava">
+	           <?php echo get_avatar( $comment, 50 ); ?>
+	       	</div>
+
+          <div class="comment-body">
+
+						<h4 class="comment_author-name">
+							<?php echo get_comment_author(); ?>
+							<?php
+							// If current post author is also comment author, make it known visually.
+							if( $comment->user_id === $post->post_author ) {
+								echo '<i class="fa fa-star"></i> ';
+							} ?>
+						</h4>
+            <?php comment_text(); ?>
+
+            <?php if( '0' == $comment->comment_approved ): ?>
+            <div class="iziToast iziToast-info">
+              <div class="iziToast-body" style="padding-left: 33px;">
+                <i class="iziToast-icon icon-flag"></i>
+                <strong><?php esc_html_e( 'Info', 'slow_wheels' ); ?></strong>
+                <p><?php esc_html_e( 'Your comment is awaiting moderation.', 'slow_wheels' ); ?></p>
+              </div>
+
+							<button class="iziToast-close"></button>
+            </div>
+            <?php endif; ?>
+
+
+						<div class="comment-footer">
+            	<div class="column">
+              	<span class="comment-meta">
+                  <?php
+                	printf( '<time datetime="%s">%s</time>', get_comment_time( 'c' ),
+                  	/* translators: 1: date, 2: time */
+                  	sprintf( esc_html__( '%1$s at %2$s', 'slow_wheels' ), get_comment_date(), get_comment_time() )
+									); ?>
+                </span>
+              </div>
+
+							<div class="column">
+              <?php
+              // Comment Reply
+              comment_reply_link( array_merge(
+              	$args,
+								array(
+                	'reply_text'    => '<i class="icon-reply"></i>' . esc_html__( 'Reply', 'slow_wheels' ),
+                  'depth'         => $depth,
+                  'max_depth'     => $args['max_depth']
+                )
+              ) );
+              // Comment Edit (Administrators)
+              edit_comment_link( ' | <i class="fa fa-edit"></i>' . esc_html__( 'Edit', 'slow_wheels' ) ); ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    <?php
+      break;
+    }
+  }
+}
+
+
+/**
+ * Comment Form Defaults
+ *
+ * @since 1.0
+ */
+function slow_wheels_comment_form_defaults( $defaults ) {
+    global $current_user;
+
+    $comments['tags_suggestion'] 				= esc_attr( get_theme_mod( 'slow_wheels_comments_tags_suggestion', true ) );
+
+    $defaults['class_form']             = 'sw_comments_form';
+
+    $defaults['title_reply_before']     = '<h4 class="sw_comments_form-title">';
+    $defaults['title_reply_after']      = '</h4>';
+
+    $defaults['title_reply']						= sprintf( '%s <span>%s</span>', esc_html__( 'Leave a', 'slow_wheels' ), esc_html__( 'Comment', 'slow_wheels' ) );
+    $defaults['logged_in_as']           = '';
+
+    // Comment Textarea
+    $defaults['comment_field']          = '<div class="sw_comment_form-text"><div class="form-group"><label for="comment">'. esc_html__( 'Comment', 'slow_wheels' );
+    $defaults['comment_field']         .= '</label><textarea class="form-control form-control-rounded" rows="7" id="comment" ';
+    $defaults['comment_field']         .= 'name="comment"';
+    $defaults['comment_field']         .= 'placeholder="'. esc_attr__( 'Write your comment here...', 'slow_wheels' ) .'" aria-required="true">';
+    $defaults['comment_field']         .= '</textarea></div></div>';
+
+    // Comment Submit Button
+    $defaults['submit_button']          = '<div class="sw_comment_submit"><input name="submit" type="submit" ';
+    $defaults['submit_button']         .= 'class="sw_comment_submit-btn" value="'. esc_attr__( 'Post Comment', 'slow_wheels' ) .'">';
+    $defaults['submit_button']         .= '</div>';
+
+    $defaults['comment_notes_before']   = '';
+
+    return $defaults;
+}
+add_filter( 'comment_form_defaults', 'slow_wheels_comment_form_defaults' );
+
+/**
+ * Comment Form Fields
+ *
+ * @since 1.0
+ */
+function slow_wheels_comment_form_fields( $fields ) {
+
+    // Get the current commenter if available
+    $commenter = wp_get_current_commenter();
+
+    // Core functionality
+    $req      = get_option( 'require_name_email' );
+    $aria_req = ( $req ? " aria-required='true'" : '' );
+    $html_req = ( $req ? " required='required'" : '' );
+
+    // Comment Author Input
+    $fields['author']  = '<div class="sw_comment_form-author"><div class="form-group"><label for="author">'. esc_html__( 'Name', 'slow_wheels' );
+    $fields['author'] .= ( $req ? '<span class="required">*</span>' : '' );
+    $fields['author'] .= '</label><input id="author" name="author" type="text" class="form-control form-control-rounded" ';
+    $fields['author'] .= 'value="'. esc_attr( $commenter['comment_author'] ) .'" placeholder="'. esc_attr__( 'Name', 'slow_wheels' ) .'">';
+    $fields['author'] .= '</div></div>';
+
+    // Comment Email Input
+    $fields['email']  = '<div class="sw_comment_form-author"><div class="form-group"><label for="email">'. esc_html__( 'Email', 'slow_wheels' );
+    $fields['email'] .= ( $req ? '<span class="required">*</span>' : '' );
+    $fields['email'] .= '</label><input id="email" name="email" type="text" class="form-control form-control-rounded" ';
+    $fields['email'] .= 'value="'. esc_attr(  $commenter['comment_author_email'] ) .'" placeholder="'. esc_attr__( 'Email', 'slow_wheels' ) .'">';
+    $fields['email'] .= '</div></div>';
+
+    // Comment URL Input
+    $fields['url'] = '';
+
+    return $fields;
+}
+add_filter( 'comment_form_default_fields', 'slow_wheels_comment_form_fields' );
+
+/**
+ * Move Comment Textarea to Bottom
+ *
+ * @since 1.0
+ */
+function slow_wheels_move_comment_field_to_bottom( $fields ) {
+    $comment_field = $fields['comment'];
+
+    unset( $fields['comment'] );
+
+    $fields['comment'] = $comment_field;
+
+    return $fields;
+}
+add_filter( 'comment_form_fields', 'slow_wheels_move_comment_field_to_bottom' );

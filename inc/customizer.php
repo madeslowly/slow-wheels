@@ -598,6 +598,8 @@ function slow_wheels_register_theme_customizer( $wp_customize ) {
 
 	////////////////////////////// END CONTACT PAGE //////////////////////////////
 
+
+
 	// Sanitize text
 	function sanitize_text( $text ) {
 	    return sanitize_text_field( $text );
@@ -626,7 +628,7 @@ function featured_image_gallery_customize_register( $wp_customize ) {
         'featured_image_gallery',
         array(
             'label'    => __( 'Selected images' ),
-						'description' => __( 'Only use images in PNG format with a transparent background. Once uploaded ensure there is liitle or no white space around the image. Conatct arran@madeslowly.co.uk if you need help converting an image.' ),
+						'description' => __( 'Only use images in PNG format with a transparent background. Once uploaded ensure there is liitle or no white space around the image. Contact arran@madeslowly.co.uk if you need help converting an image.' ),
             'section'  => 'featured_image_gallery_section',
             'settings' => 'featured_image_gallery',
             'type'     => 'image_gallery',
@@ -634,3 +636,15 @@ function featured_image_gallery_customize_register( $wp_customize ) {
     ) );
 }
 add_action( 'customize_register', 'featured_image_gallery_customize_register' );
+
+function numag_remove_sections( $wp_customize ) {
+
+	$wp_customize->remove_section('header_image');
+	//$wp_customize->remove_panel('nav_menus');
+	$wp_customize->remove_panel('widgets');
+	$wp_customize->remove_section('custom_css');
+	$wp_customize->remove_section('colors');
+	$wp_customize->remove_section('background_image');
+	//$wp_customize->remove_section('title_tagline');
+}
+add_action( 'customize_register', 'numag_remove_sections');
