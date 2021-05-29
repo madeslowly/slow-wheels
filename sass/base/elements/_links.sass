@@ -40,4 +40,15 @@ footer a
 	&:hover,
 	&:focus,
 	&:active
-		color: $racing-green
+		color: $red
+
+.menu-item > .sub-menu
+	max-height: 0
+	visibility: hidden
+	opacity: 0
+	@include default-link-trans
+
+.menu-item:hover > .sub-menu
+	max-height: 1000px
+	visibility: visible
+	opacity: 1

@@ -6,10 +6,23 @@
   width: 100vw
   //max-width: 1000px
 
+.w_80
+  width: 80vw
 
 .not__home
-  padding-top: 10vh
+  padding-top: 15vh
 
+.privacy__policy--text
+  display: flex
+  width: 95vw
+  max-width: 800px
+  margin: 0 auto
+  padding-top: 2rem
+
+.privacy-policy
+  .entry-content
+    width: 100vw
+    margin: 0 auto
 
 .wfa__container
   width: 100vw
@@ -53,7 +66,6 @@
 
 
 .booking__page,
-.gallery__page,
 .contact__page
   .entry-header
     display: flex
@@ -65,9 +77,9 @@
     //padding: 10rem 1rem
     background-color: rgba($royal-blue, .6)
     width: 100vw
-    height: 60vh
+    height: 300px
     position: absolute
-    top: 0
+    top: 15vh
     z-index: 1
     h1
       font-weight: 200
@@ -75,36 +87,54 @@
 
   .hero__image
     width: 100vw
-    height: 60vh
+    height: 300px
+    top: 16vh
     background-size: cover
     background-position: center
     //mix-blend-mode: screen
     filter: grayscale(1) brightness(1.2)
 
 
-  .wfa__strapline
-    position: absolute
-    bottom: 50vh
-    margin: 0 auto
-    text-align: center
-    width: 100vw
-    color: $pure-white
-    //margin-top: -25vh
-    z-index: 2
-    font-size: 2rem
-    font-weight: 200
 
 
-  .entry-content
-    width: 95vw
-    //max-width: 600px
-    margin: 0 auto
-    //margin-top: 10rem
+
+
 
   .wbk-outer-container
     // stop the booking from from filling out
     max-width: 600px
 
+.sw_entry_content-page
+
+  .strapline
+    display: flex
+    align-items: center
+    justify-content: center
+    color: $pure-white
+    position: absolute
+    width: 95vw
+    max-width: 800px
+    height: $hero-height / 2
+    top: $nav-height + $hero-height / 2
+    z-index: 1
+    font-weight: 200
+    font-size: 2rem
+    margin: 0
+
+  .description
+    text-align: center
+    //max-width: 800px
+    font-weight: 300
+    color: $racing-green
+    //font-size: 2rem
+
+    &:after
+      content: ''
+      display: block
+      height: 1px
+      width: 200px
+      background-color: $racing-green
+      margin: 3rem auto 4rem
 
 .wp-block-gallery
 
@@ -113,48 +143,286 @@
   margin: 0 auto
 
 
-.wfa__gallery--bikes img
-  transform: scale(0)
+.wfa__gallery img
+  //transform: scale(0)
+  visibility: hidden
+  opacity: 0
+  @include default-trans
+  //perspective: 1000px
 
 
 .visible
   transform: scale(1)!important
+  visibility: visible!important
+  opacity: 1!important
 
   &:hover
-    transform: scale(2)!important
-    z-index: 9999
-
-
-
-.post-thumbnail
-  width: 100vw
-  height: 40vw
-  background-color: rgba($royal-blue, 1)
-  overflow: hidden
-  margin-bottom: 10rem
-
+    //transform: scaleX(0) rotateY(180deg) !important
 
   img
     object-fit: cover
-    filter: opacity(.4)
+    filter: opacity(1)
     width: 100%
 
 
 
-.entry-header
+
+.site-main
+  padding-top: 15vh
+
+.sw_hero-wrap
+  width: 100vw
+  height: $hero-height
+  overflow: hidden
+
+  img
+    width: 100%
+    object-fit: cover
+
+.sw_entry_content-feed
+  max-width: 1200px
+  align-items: flex-start
+  justify-content: space-around
+  display: flex
+  flex-wrap: wrap
+  width: 95vw
+  margin: 5vh auto
+
+  .sw_post_card
+    //width: 30%
+    width: 300px
+    border: 1px solid $royal-blue
+    border-radius: 12px
+    overflow: hidden
+    background-color: lighten($royal-blue, 80)
+    margin: 0 1rem 5rem 1rem
+    box-shadow: 2px 2px 6px rgba(0,0,0,.3)
+    transition: box-shadow 0.6s cubic-bezier(0.2, 0.3, 0, 1)
+
+    &:hover
+      box-shadow: 4px 4px 8px rgba(0,0,0,.3)
+
+      .sw_post_card-img
+        transform: scale(1.1)
+
+  .sw_post_thumb
+    overflow: hidden
+
+  .sw_post_card_wrap-img
+    height: 200px
+    overflow: hidden
+
+  .sw_post_card-img
+    width: 100%
+    height: 200px
+    object-fit: cover
+    transform: scale(1)
+    @include default-trans
+
+  .sw_news-thumb-header, .sw_news-thumb-content
+    padding: 0 .8rem
+    color: $royal-blue
+
+  .sw_news-thumb-content
+    //padding-bottom: 2rem
+
+.sw_page-header,
+.sw_entry_meta
   display: flex
   justify-content: center
   align-items: center
   text-align: center
-  text-transform: uppercase
   color: $pure-white
-  //padding: 10rem 1rem
-  width: 100vw
-  //height: 100%
+  padding: 0
+  margin: 0
 
+.sw_page-header
+  background-color: rgba($royal-blue, .6)
+  width: 100vw
+  height: $hero-height
   position: absolute
-  top: 20vh
-  //z-index: 1
-  h1
-    font-weight: 200
-    font-size: 4rem
+  top: $nav-height
+  z-index: 1
+  font-weight: 200
+  font-size: 4rem
+  text-transform: uppercase
+
+.sw_entry_meta
+  position: absolute
+  width: 100vw
+  height: $hero-height / 2
+  top: $nav-height + $hero-height / 2
+  z-index: 1
+  font-weight: 200
+  font-size: 2rem
+
+  & > span
+    padding: 0 .3rem
+
+  a
+    color: $pure-white
+    border: 0 dotted $red
+    border-radius: 2px
+
+    &:hover
+      border-bottom: 1px solid $red
+      border-style: dotted
+
+    &:hover,
+    &:active,
+    &:focus
+      background-color: #ffeb3b
+      color: $royal-blue
+
+.sw_entry_content-page,
+.sw_entry_footer
+  display: block
+  //flex-wrap: wrap
+  width: 95vw
+  margin: 5vh auto
+  max-width: 800px
+
+.sw_entry_content-page,
+.sw_entry_footer,
+.sw_comments-wrap
+  a
+    color: $color__link
+    padding: 2px 4px
+    font-weight: 400
+    border: 0 dotted $red
+    border-radius: 2px
+
+    &:hover
+      border-bottom: 1px solid $red
+      border-style: dotted
+
+    &:hover,
+    &:active,
+    &:focus
+      background-color: #ffeb3b
+
+.sw_comments-wrap
+  background-color: rgba($royal-blue, .01)
+  padding: 5rem 0
+
+  .sw_comments_area
+    width: 95vw
+    margin: 0 auto
+    max-width: 800px
+
+  .comment
+    display: flex
+    flex-direction: row
+    align-items: flex-start
+    margin: 2rem 0
+    width: 100
+
+  .comment-body
+    padding: 1rem 1rem 1rem 1rem
+    width: 100%
+    border: 1px solid rgba($royal-blue, .1)
+    border-radius: 6px
+    background-color: $pure-white
+    position: relative
+    margin-left: 14px
+
+    .comment-meta
+      color: $color__text-minor
+
+
+.comment-footer
+  display: flex
+  flex-direction: row
+  align-items: baseline
+
+.comment_author-name
+  margin: 0
+
+.comment_author-ava
+  margin-top: .5rem
+  .avatar
+    border-radius: 50%
+
+.comment-footer
+  justify-content: space-between
+
+  .comment-reply-link
+    text-align: right
+
+    &:before
+      font-family: "Font Awesome 5 Free"
+      content: "\f3e5"
+      display: inline-block
+      padding-right: 3px
+      vertical-align: middle
+      font-weight: 900
+
+.comment-respond
+  max-width: 600px
+  margin: 0 auto
+  margin-top: 5rem
+
+  input,
+  textarea
+    border: 1px solid rgba($royal-blue, .1)
+
+.sw_comments_form
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+
+.sw_comment_form-author
+  width: 40%
+
+  .form-group
+    display: flex
+    flex-direction: column
+
+.sw_comment_form-text
+  width: 100%
+
+.sw_comment_submit-btn
+  border-radius: 6px
+
+
+.privacy-policy
+  .entry-header
+    display: flex
+    justify-content: center
+    align-items: center
+    text-align: center
+    text-transform: uppercase
+    //padding: 10rem 1rem
+    width: 100vw
+    height: 40vh
+    position: relative
+    z-index: 1
+    h1
+      font-weight: 200
+      font-size: 4rem
+
+.not__home
+
+  .entry-header
+    display: flex
+    justify-content: center
+    align-items: center
+    text-align: center
+    text-transform: uppercase
+    color: $pure-white
+    //padding: 10rem 1rem
+    background-color: rgba($royal-blue, .6)
+    width: 100vw
+    height: 300px
+    position: absolute
+    top: 15vh
+    z-index: 1
+    h1
+      font-weight: 200
+      font-size: 4rem
+
+  .entry-content
+    width: 95vw
+    max-width: 800px
+    margin: 0 auto
+    padding: 5rem 0

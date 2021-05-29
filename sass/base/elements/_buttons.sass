@@ -5,22 +5,20 @@ input[type="submit"]
 	border: 1px solid
 	border-color: $color__border-button
 	// overriding plugins like webba
-	border-radius: 12px!important
+	border-radius: 6px
+	//!important
 	background: $color__background-button
-	color: rgba(0, 0, 0, 0.8)
-	line-height: 1
-	padding: 0.6em 1em 0.4em
+	color: $pure-white
+	//line-height: 1.5
+	padding: 1rem 2rem
 	@include default-link-trans
+	cursor: pointer
 
-	&:hover
-		border-color: $color__border-button-hover
-		opacity: .7!important
-
-
+	&:hover,
 	&:active,
 	&:focus
-		border-color: $color__border-button-focus
-		opacity: .7!important
+		background-color: $color__bacground-button-focus
+		color: $color__background-button
 
 
 // Div buttons
@@ -58,3 +56,52 @@ input[type="submit"]
 .wfa__btn--wire
 	background-color: transparent
 	color: $royal-blue
+
+// Quick sign up in footer
+
+.qsup__email-input
+	border-top-left-radius: 6px!important
+	border-bottom-left-radius: 6px!important
+	border-top-right-radius: 0!important
+	border-bottom-right-radius: 0!important
+	border: solid 0!important
+	padding: .5rem 1rem!important
+
+.qsup__submit
+	border-top-left-radius: 0!important
+	border-bottom-left-radius: 0!important
+	border-top-right-radius: 6px!important
+	border-bottom-right-radius: 6px!important
+	border: solid 0!important
+	background: $red
+	color: rgba(0, 0, 0, 0.8)
+	padding: .5rem 1rem!important
+	line-height: 1.6!important
+	margin-left: -4.2px
+	cursor: pointer
+	position: relative
+	display: inline-block
+
+
+	&:hover
+		opacity: 1
+
+		& > .qsup__compliance-text
+			visibility: visible
+			opacity: 1
+
+	.qsup__compliance-text
+		visibility: hidden
+		opacity: 0
+		width: 320px
+		background-color: lighten($royal-blue, 10)
+		color: $pure-white
+		padding: 1rem 1.5rem
+		border-radius: 6px
+		text-align: left
+		/* Position the tooltip text - see examples below! */
+		position: absolute
+		right: 0
+		z-index: 1
+		@include default-link-trans
+		box-shadow: 2px 2px 4px rgba($pure-black, .4)

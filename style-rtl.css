@@ -722,9 +722,9 @@ textarea {
 	margin: 0 0 1.5em;
 }
 
-.comment-navigation .nav-links,
-.posts-navigation .nav-links,
-.post-navigation .nav-links {
+.comment-navigation .sw_news-nav-links,
+.posts-navigation .sw_news-nav-links,
+.post-navigation .sw_news-nav-links {
 	display: flex;
 }
 

@@ -2,18 +2,15 @@
 	display: block
 	justify-content: center
 	align-items: center
-	padding: 0 5vw
 	background-color: $royal-blue
-
-	& > *
-		color: $pure-white
 
 	.footer-naviagtion
 		display: flex
 		flex-direction: row
-		padding: 5rem 0
 		justify-content: space-around
 		flex-wrap: wrap
+		padding: 5rem 5vw
+		color: $pure-white
 
 		ul
 			list-style: none
@@ -30,26 +27,41 @@
 	.site-info
 		display: flex
 		flex-direction: row
-		justify-content: center
+		justify-content: space-between
 		align-items: center
+		padding: 0 5vw
+		padding: 5rem 1rem 1rem 1rem
+		font-size: .8rem
+		color: $white
+
+		& > *
+			margin: 0
 
 	.sitemap,
 	.downloadables
 		//width: 20%
 
 	.sponsors
-		//width: 60%
+		text-align: center
+
+		.gallery
+			padding-top: 2rem
+			align-items: center
 
 		img
 			object-fit: contain!important
 			width: 200px!important
-			filter: brightness(0) invert(1)
-			opacity: .8
+			filter: brightness(0) invert(.2)
 			padding: 1rem
 			border-radius: 16px
+			background-color: transparent
 			@include default-link-trans
 
 			&:hover
 				filter: none
-				opacity: 1
-				background-color: lighten($royal-blue, 80)
+				//background-color: $pure-white
+
+.footer-header
+	padding: 2rem 5vw
+	background-color: lighten($royal-blue, 70)
+	border-top: 1px solid $royal-blue
