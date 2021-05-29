@@ -147,21 +147,21 @@ function slow_wheels_scripts() {
 
 	wp_style_add_data( 'slow-wheels-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'slow-wheels-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'slow-wheels-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), _S_VERSION, true );
 
-	wp_enqueue_script( 'nav-scrolled', get_template_directory_uri() . '/js/nav-scroll.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'nav-scrolled', get_template_directory_uri() . '/assets/js/nav-scroll.js', array(), _S_VERSION, true );
 
 	if ( is_front_page() ) {
-	wp_enqueue_script( 'img-swapper', get_template_directory_uri() . '/js/img_swapper.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'img-swapper', get_template_directory_uri() . '/assets/js/img_swapper.js', array(), _S_VERSION, true );
 	}
 
 	/* If we have a gallery run the script to ani each image in */
 	if ( strpos( $page->page_content,'[gallery') === true) {
-	wp_enqueue_script( 'add-gallery-class', get_template_directory_uri() . '/js/gallery_add_class.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'add-gallery-class', get_template_directory_uri() . '/assets/js/gallery_add_class.js', array(), _S_VERSION, true );
 	}
 
   if ( is_page_template( 'gallery-page.php' ) ) {
-      wp_enqueue_script( 'add-gallery-class', get_template_directory_uri() . '/js/gallery_add_class.js', array(), _S_VERSION, true );
+      wp_enqueue_script( 'add-gallery-class', get_template_directory_uri() . '/assets/js/gallery_add_class.js', array(), _S_VERSION, true );
   }
 
 	wp_enqueue_script( 'aos-script', 'https://unpkg.com/aos@next/dist/aos.js');
