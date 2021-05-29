@@ -11,13 +11,13 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php slow_wheels_post_thumbnail(array('class' => 'hero__image')); ?>
+	<?php slow_wheels_post_thumbnail(); ?>
 
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+	<header class="">
+		<?php the_title( '<h1 class="sw_page-header">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content">
+	<div class="sw_entry_content-page">
 		<?php
 		the_content();
 
@@ -31,7 +31,7 @@
 	</div><!-- .entry-content -->
 
 	<?php if ( get_edit_post_link() ) : ?>
-		<footer class="entry-footer">
+		<footer class="sw_entry_footer">
 			<?php
 			edit_post_link(
 				sprintf(
@@ -50,6 +50,6 @@
 				'</span>'
 			);
 			?>
-		</footer><!-- .entry-footer -->
+		</footer><!-- .sw_entry_footer -->
 	<?php endif; ?>
 </article><!-- #post-<?php the_ID(); ?> -->

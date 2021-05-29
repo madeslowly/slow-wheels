@@ -127,16 +127,17 @@ if ( ! function_exists( 'slow_wheels_post_thumbnail' ) ) :
 		if ( is_singular() ) :
 			?>
 
-			<div class="post-thumbnail">
+			<div class="post-thumbnail sw_hero-wrap">
 				<?php the_post_thumbnail(); ?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>
 
-			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+			<a class="post-thumbnail sw_post_thumb" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+				<div class="sw_post_card_wrap-img">
 				<?php
 					the_post_thumbnail(
-						'post-thumbnail',
+						'post-thumbnail sw_post_card-img',
 						array(
 							'alt' => the_title_attribute(
 								array(
@@ -146,7 +147,8 @@ if ( ! function_exists( 'slow_wheels_post_thumbnail' ) ) :
 						)
 					);
 				?>
-			</a>
+			</div>
+			<!--</a> close at end of sw_post_card -->
 
 			<?php
 		endif; // End is_singular().

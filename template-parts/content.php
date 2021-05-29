@@ -10,28 +10,29 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+
+	<header class="">
 		<?php
 		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
+			the_title( '<h1 class="sw_page-header">', '</h1>' );
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
 
 		if ( 'post' === get_post_type() ) :
 			?>
-			<div class="entry-meta">
+			<div class="sw_entry_meta">
 				<?php
 				slow_wheels_posted_on();
 				slow_wheels_posted_by();
 				?>
-			</div><!-- .entry-meta -->
+			</div><!-- .sw_entry_meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
 	<?php slow_wheels_post_thumbnail(); ?>
 
-	<div class="entry-content">
+	<div class="sw_entry_content-page">
 		<?php
 		the_content(
 			sprintf(
@@ -57,7 +58,7 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
+	<footer class="sw_entry_footer">
 		<?php slow_wheels_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	</footer><!-- .sw_entry_footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
