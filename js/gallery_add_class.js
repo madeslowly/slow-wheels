@@ -1,12 +1,49 @@
 
+document.addEventListener('scroll', inView);
+
+var images = document.querySelector('.wfa__gallery').querySelectorAll('img');
+
+// get window height
+var windowHeight = window.innerHeight;
+
+// get number of pixels that the document is scrolled
+var scrollY = window.scrollY || window.pageYOffset;
 
 window.onload = function() {
-  var images = document.querySelector('.wfa__gallery--bikes').querySelectorAll('img');
-  document.querySelector('.wfa__gallery--bikes').classList.remove('wfa__gallery--bikes');
 
-  var srcList = [];
-  for(var i = 0; i < images.length; i++) {
-    images[i].classList.add('visible');
-    images[i].setAttribute('style', 'transform: scale(0); animation: .6s ease-in ani_zoom_in forwards; animation-delay:' + (i - 1 ) * .05 + 's;');
+  var scrollPosition = scrollY + windowHeight;
+
+  for( var i = 0; i < images.length; i++) {
+
+    // get element position (distance from the top of the page to the bottom of the element)
+    var imageHeight = images[i].clientHeight;
+    var imagePosition = images[i].getBoundingClientRect().top + scrollY + imageHeight;
+
+    if ( scrollPosition > imagePosition ) {
+      images[i].classList.add('visible')
+    }
+    else {
+      images[i].classList.remove('visible')
+    }
+  }
+}
+
+function inView() {
+
+  // get current scroll position (distance from the top of the page to the bottom of the current viewport)
+  var scrollPosition = scrollY + windowHeight;
+
+  for( var i = 0; i < images.length; i++) {
+
+    // get element position (distance from the top of the page to the bottom of the element)
+    var imageHeight = images[i].clientHeight;
+    var imagePosition = images[i].getBoundingClientRect().top + scrollY + imageHeight;
+
+    if ( scrollPosition > imagePosition ) {
+      images[i].classList.add('visible')
+    }
+    else {
+      images[i].classList.remove('visible')
+    }
   }
 }
