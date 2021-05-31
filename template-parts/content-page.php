@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying page content in page.php
+ * Template part for displaying page content in index.php
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -19,6 +19,10 @@
 
 	<div class="sw_entry_content-page">
 		<?php
+
+		if ( wp_get_post_parent_id( get_the_ID() ) ) {
+			echo "INSERT CHILD PAGE NAV";
+		}
 		the_content();
 
 		wp_link_pages(
