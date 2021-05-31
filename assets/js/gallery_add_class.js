@@ -1,7 +1,7 @@
-
+// Add scroll listener and add .visible to .tiled-gallery__row
 document.addEventListener('scroll', inView);
 
-var images = document.querySelector('.wfa__gallery').querySelectorAll('img');
+var images = document.querySelector('.tiled-gallery__gallery').querySelectorAll('.tiled-gallery__row');
 
 // get window height
 var windowHeight = window.innerHeight;
