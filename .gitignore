@@ -7,3 +7,13 @@
 _scripts
 
 Gemfile.lock
+
+.eslintrc
+
+.stylelintrc.json
+
+composer.json
+
+package.json
+
+phpcs.xml.dist
