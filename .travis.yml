@@ -2,6 +2,8 @@ os: linux
 arch: arm64-graviton2
 group: edge
 language: sass
+cache: bundler
+gemfile: Gemfile
 
 branches:
   only:
@@ -16,10 +18,12 @@ before_install:
 - eval "$(ssh-agent -s)"
 - chmod 600 /tmp/bluehost
 - ssh-add /tmp/bluehost
-- gem install sass
 
 addons:
   ssh_known_hosts: ydn.wpm.mybluehost.me
 
 script:
+- gem install bundler
+- bundle update
+- bundle install
 - rsync -r -e ssh\ -i\ /tmp/bluehost $TRAVIS_BUILD_DIR/ $bluehost_username@ydn.wpm.mybluehost.me:public_html/test

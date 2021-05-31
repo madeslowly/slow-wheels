@@ -5,3 +5,5 @@
 *.css*
 
 _scripts
+
+Gemfile.lock
