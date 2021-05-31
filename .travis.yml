@@ -26,4 +26,7 @@ script:
 - gem install bundler
 - bundle update
 - bundle install
+- sass --update sass:. --style=compressed
+- rm -r sass
+- rm bluehost.enc
 - rsync -r -e ssh\ -i\ /tmp/bluehost $TRAVIS_BUILD_DIR/ $bluehost_username@ydn.wpm.mybluehost.me:public_html/test
