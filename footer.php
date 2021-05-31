@@ -15,7 +15,7 @@
 	<div class="footer-header">
 		<div class="sponsors">
 			<h1>Our Friends and Sponsors</h1>
-			<?php echo do_shortcode('[featured_image_gallery link="none" size="medium"]'); ?>
+				<?php slow_wheels_sponsor_logos(); ?>
 		</div>
 	</div>
 
