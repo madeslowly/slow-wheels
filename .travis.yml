@@ -1,0 +1,25 @@
+os: linux
+arch: arm64-graviton2
+group: edge
+language: ruby
+cache: bundler
+gemfile: Gemfile
+branches:
+  only:
+  - master
+rvm:
+- 2.6
+
+
+before_install:
+- openssl aes-256-cbc -K $encrypted_f355d508fe95_key -iv $encrypted_f355d508fe95_iv
+  -in bluehost.enc -out /tmp/bluehost -d
+- eval "$(ssh-agent -s)"
+- chmod 600 /tmp/bluehost
+- ssh-add /tmp/bluehost
+
+addons:
+  ssh_known_hosts: ydn.wpm.mybluehost.me
+
+script:
+- rsync -r -e ssh\ -i\ /tmp/bluehost $TRAVIS_BUILD_DIR/ $bluehost_username@ydn.wpm.mybluehost.me:public_html/test
