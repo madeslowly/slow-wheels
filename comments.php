@@ -52,7 +52,7 @@ if ( post_password_required() ) {
 
 		<?php the_comments_navigation(); ?>
 
-		<?php wp_list_comments( array( 'callback' => 'sw_comment', 'style' => 'ol' ) );	?>
+		<?php wp_list_comments( array( 'callback' => 'slow_wheels_comments', 'style' => 'ol' ) );	?>
 		<!-- .comment -->
 
 		<?php
