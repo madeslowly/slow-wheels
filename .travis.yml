@@ -28,7 +28,6 @@ script:
 - bundle update
 - bundle install
 - sass --update sass:. --style=compressed
-- rm -r .git
 - rm -r sass
 - rm -r .sass-cache
 - rm .travis.yml
