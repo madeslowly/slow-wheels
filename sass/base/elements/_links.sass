@@ -13,6 +13,7 @@ a
 
 
 nav a
+
 	color: $color__link
 
 	&:visited
@@ -27,7 +28,16 @@ nav a
 
 
 .nav-scrolled nav a
-	color: $white
+	color: $pure-white
+
+	&:visited
+		color: $pure-white
+
+
+	&:hover,
+	&:focus,
+	&:active
+		color: darken($pure-white, 20)
 
 
 footer a
@@ -42,13 +52,13 @@ footer a
 	&:active
 		color: $red
 
-.menu-item > .sub-menu
-	max-height: 0
-	visibility: hidden
-	opacity: 0
-	@include default-link-trans
-
-.menu-item:hover > .sub-menu
-	max-height: 1000px
-	visibility: visible
-	opacity: 1
+// .menu-item > .sub-menu
+// 	max-height: 0
+// 	visibility: hidden
+// 	opacity: 0
+// 	@include default-link-trans
+//
+// .menu-item:hover > .sub-menu
+// 	max-height: 1000px
+// 	visibility: visible
+// 	opacity: 1

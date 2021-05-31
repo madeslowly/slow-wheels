@@ -15,9 +15,8 @@
 	z-index: 99999
 
 	.custom-logo-link
-		max-width: $nav-height *.8
-		width: $nav-height *.8
-		//transform: translate( 0, 2vh)
+		max-width: $nav-height *.7
+		width: $nav-height *.7
 		transition: all 0.6s ease
 
 		img
@@ -25,112 +24,102 @@
 			-webkit-filter: drop-shadow(0 2px 2px rgba($royal-blue, 0.3))
 			//filter: drop-shadow(5px 5px 5px #222)
 
-.nav-scrolled
-	height: $nav-scrolled-height
-	box-shadow: 0 1px 8px rgba($royal-blue, 0.1)
-	background-color: $royal-blue
+	.main-navigation
+		display: block
+
+		.menu-item:hover > .sub-menu,
+		.menu-item:focus > .sub-menu
+			visibility: visible
+			opacity: 1
+			transform: translateY(0)
 
 	.sub-menu
-		background-color: $royal-blue!important
-
-	.custom-logo-link
-		max-width: $nav-scrolled-height * .8
-		width: $nav-scrolled-height * .8
-		//transform: translate( 3vh , .5vh)
-
-		img
-			-webkit-filter: none
-
-.main-navigation
-	display: block
-	//width: 100%
-
-	.navbar--list
 		list-style: none
 		margin: 0
 		padding-left: 0
-
-		.sub-menu
-			list-style: none
-			margin: 0
-			padding-left: 0
-			visibility: hidden
-			opacity: 0
-			box-shadow: 1px 1px 1px rgba($pure-black, .1)
-			float: left
-			position: absolute
-			top: 100%
-			z-index: 99999
-			border-radius: 6px
-
-			&:before
-				background: inherit
-				content: ""
-				display: block
-				height: 16px
-				width: 16px
-				left: 5px
-				position: absolute
-				bottom: 100%
-				border-radius: 2px
-				transform: rotate(-45deg) translateY(14px)
-				z-index: -1
-
-			li
-				&:hover > ul,
-				&.focus > ul
-					visibility: visible
-					opacity: 1
-
-			a
-
-			&:hover > a,
-			.focus > a
-
-			a:hover,
-			a.focus
-
-		li:hover > ul,
-		li.focus > ul
-			visibility: visible
-			opacity: 1
-
-	li
-		position: relative
-
-		&:hover > a,
-		&.focus > a
-
-	a
-		display: block
-		text-decoration: none
-		padding: 1rem
-
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a
-		&::after
-			content: ""
-			display: flex
-			justify-content: center
-			border-bottom: solid 1px $red
-			width: 30px
-			margin: 10px auto 0
-
-
-	.sub-menu
+		visibility: hidden
+		opacity: 0
+		box-shadow: 2px 2px 5px 2px rgba($pure-black, .1)
+		float: left
+		position: absolute
+		top: 100%
+		z-index: 99999
+		border-radius: 6px
+		background-color: darken($pure-white, 10)
+		transform: translateY(10px)
 		@include default-link-trans
 		display: flex
 		flex-direction: column
-		background-color: $pure-white
 
+		&:before
+			background: inherit
+			content: ""
+			display: block
+			height: 16px
+			width: 16px
+			left: 5px
+			position: absolute
+			bottom: 100%
+			border-radius: 2px
+			transform: rotate(-45deg) translateY(14px)
+			z-index: -1
 
 		a
 			white-space: nowrap
 			&::after
 				margin: 10px 0 0
 			//color: $pure-black
+
+.nav-scrolled
+	height: $nav-scrolled-height
+	box-shadow: 0 1px 8px rgba($royal-blue, 0.1)
+	background-color: $royal-blue
+
+	.menu-item:hover > .sub-menu,
+	.menu-item:focus > .sub-menu
+
+		transform: translateY(-10px)!important
+
+	.sub-menu
+		background-color: lighten($royal-blue, 10)
+		transform: translateY(0)
+
+	.custom-logo-link
+		max-width: $nav-scrolled-height * .8
+		width: $nav-scrolled-height * .8
+
+		img
+			-webkit-filter: none
+
+.navbar--list
+	list-style: none
+	margin: 0
+	padding-left: 0
+
+
+
+	li
+		position: relative
+
+	a
+		display: block
+		text-decoration: none
+		padding: 1rem
+
+.current_page_item > a,
+.current-menu-item > a,
+.current_page_ancestor > a,
+.current-menu-ancestor > a
+	&::after
+		content: ""
+		display: flex
+		justify-content: center
+		border-bottom: solid 1px $red
+		width: 30px
+		margin: 10px auto 0
+
+
+
 
 /* Small menu.
 .menu-toggle,
