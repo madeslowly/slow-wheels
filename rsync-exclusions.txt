@@ -1,7 +1,5 @@
-.git
+.*
 sass
-.sass-cache
-.travis.yml
 bluehost.enc
 Gemfile
 Gemfile.lock
