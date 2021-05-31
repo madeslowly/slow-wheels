@@ -28,11 +28,5 @@ script:
 - bundle update
 - bundle install
 - sass --update sass:. --style=compressed
-- rm -r sass
-- rm -r .sass-cache
-- rm .travis.yml
-- rm bluehost.enc
-- rm Gemfile
-- rm Gemfile.lock
-- rm README.md
-- rsync -r -e ssh\ -i\ /tmp/bluehost $TRAVIS_BUILD_DIR/ $bluehost_username@ydn.wpm.mybluehost.me:public_html/madeslowly.xyz/wfa/wp-content/themes/slow-wheels
+
+- rsync -r -e ssh\ -i\ /tmp/bluehost --exclude-from='rsync-exclusions.txt' $TRAVIS_BUILD_DIR/ $bluehost_username@ydn.wpm.mybluehost.me:public_html/madeslowly.xyz/wfa/wp-content/themes/slow-wheels
