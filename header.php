@@ -13,10 +13,22 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
+
+	<!-- Meta Character Encoding -->
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<!-- Mobile Specific Meta Tag-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Relationships Meta Data Profile -->
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+
+	<!-- Pingback -->
+	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+
+	<!-- Preconnect for faster font loading -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
+	
 	<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
 
 	<?php wp_head(); ?>
