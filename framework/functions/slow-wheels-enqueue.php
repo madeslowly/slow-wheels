@@ -22,7 +22,7 @@ function slow_wheels_register_styles() {
 
 }
 
-add_action( 'wp_enqueue_scripts', 'slow_wheels_register_styles' );
+// add_action( 'wp_enqueue_scripts', 'slow_wheels_register_styles' );
 
 /**
  * Enqueue scripts
@@ -49,6 +49,6 @@ function slow_wheels_register_scripts() {
 	}
 }
 
-add_action( 'wp_enqueue_scripts', 'slow_wheels_register_scripts' );
+// add_action( 'wp_enqueue_scripts', 'slow_wheels_register_scripts' );
 
 ?>

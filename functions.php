@@ -27,6 +27,10 @@ define( 'slow_wheels_js', slow_wheels_uri . 'assets/js/' );
 // Define Theme CSS Directory URI
 define( 'slow_wheels_css', slow_wheels_uri . 'assets/css/' );
 
+// require( 'framework/functions/slow-wheels-enqueue.php') ;
+
+/* loading from framework/functions/slow-wheels-enqueue.php stops webba form loading on page ... ? */
+
 /**
  * Enqueue styles.
  */
