@@ -29,5 +29,8 @@ script:
 - bundle install
 - sass --update sass:. --style=compressed
 - rm -r sass
+- rm .travis.yml
 - rm bluehost.enc
+- rm Gemfile*
+- rm README.md
 - rsync -r -e ssh\ -i\ /tmp/bluehost $TRAVIS_BUILD_DIR/ $bluehost_username@ydn.wpm.mybluehost.me:public_html/test
