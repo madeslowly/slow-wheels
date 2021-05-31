@@ -37,7 +37,7 @@
 	<div class="sw_news-thumb-content">
 		<p>
 		<?php
-		echo excerpt(30);
+		echo slow_wheels_post_excerpt(30);
 
 		wp_link_pages(
 			array(
