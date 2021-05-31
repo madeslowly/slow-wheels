@@ -124,6 +124,7 @@
     color: $racing-green
     //font-size: 2rem
 
+
     &:after
       content: ''
       display: block
@@ -139,8 +140,8 @@
   margin: 0 auto
 
 
-.wfa__gallery img
-  //transform: scale(0)
+.tiled-gallery__row
+  transform: scale(.9)
   visibility: hidden
   opacity: 0
   @include default-trans
@@ -148,20 +149,9 @@
 
 
 .visible
-  transform: scale(1)!important
-  visibility: visible!important
-  opacity: 1!important
-
-  &:hover
-    //transform: scaleX(0) rotateY(180deg) !important
-
-  img
-    object-fit: cover
-    filter: opacity(1)
-    width: 100%
-
-
-
+  transform: scale(1)
+  visibility: visible
+  opacity: 1
 
 .site-main
   padding-top: 15vh
