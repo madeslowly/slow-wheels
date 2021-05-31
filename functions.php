@@ -9,8 +9,65 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	// Get version from style.css file
+	$theme_version = wp_get_theme() -> get( 'Version' ) ;
+	define( '_S_VERSION', $theme_version );
 }
+
+
+// Define Theme Directory URI
+define( 'slow_wheels_uri', get_template_directory_uri() . '/' );
+
+
+// slow_wheels_uri is defined in /functions.php
+
+// Define Theme JS Directory URI
+define( 'slow_wheels_js', slow_wheels_uri . 'assets/js/' );
+
+// Define Theme CSS Directory URI
+define( 'slow_wheels_css', slow_wheels_uri . 'assets/css/' );
+
+/**
+ * Enqueue styles.
+ */
+function slow_wheels_register_styles() {
+
+	wp_enqueue_style( 'animate-on-scroll', 'https://unpkg.com/aos@next/dist/aos.css' );
+
+	wp_enqueue_style( 'slow-wheels', get_stylesheet_uri(), array(), _S_VERSION , 'all' );
+
+	wp_style_add_data( 'slow-wheels', 'rtl', 'replace' );
+
+}
+
+add_action( 'wp_enqueue_scripts', 'slow_wheels_register_styles' );
+
+/**
+ * Enqueue scripts
+ * wp_enqueue_script( 'id', slow_wheels_js . 'filename.js', 'version', $in_footer = false/true);
+ */
+function slow_wheels_register_scripts() {
+
+	wp_enqueue_script( 'slow-wheels-navigation', slow_wheels_js . 'navigation.js', array(), '', true );
+
+	wp_enqueue_script( 'nav-scrolled', slow_wheels_js . 'nav-scroll.js', array(), '', true );
+
+	if ( is_front_page() ) {
+	wp_enqueue_script( 'img-swapper', slow_wheels_js . 'img_swapper.js', array(), '', true );
+	}
+
+	/* If we have a gallery run the script to ani each image in */
+	/* This need to be conditional so we dont load on every page */
+	wp_enqueue_script( 'add-gallery-class', slow_wheels_js . 'gallery_add_class.js', array(), '', true );
+
+	wp_enqueue_script( 'aos-script', 'https://unpkg.com/aos@next/dist/aos.js', array(), '', true);
+
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+}
+
+add_action( 'wp_enqueue_scripts', 'slow_wheels_register_scripts' );
 
 if ( ! function_exists( 'slow_wheels_setup' ) ) :
 	/**
@@ -51,6 +108,8 @@ if ( ! function_exists( 'slow_wheels_setup' ) ) :
 		register_nav_menus(
 			array(
 				'menu-1' => esc_html__( 'Primary', 'slow-wheels' ),
+				'Sitemap' => __( 'Sitemap' ),
+				'downloadable-content' => __( 'Downloadable Content' )
 			)
 		);
 
@@ -138,39 +197,9 @@ function slow_wheels_widgets_init() {
 add_action( 'widgets_init', 'slow_wheels_widgets_init' );
 
 /**
- * Enqueue scripts and styles.
+ * Get scripts and styles
  */
-function slow_wheels_scripts() {
-	wp_enqueue_style( 'aos-style', 'https://unpkg.com/aos@next/dist/aos.css' );
-
-	wp_enqueue_style( 'slow-wheels-style', get_stylesheet_uri(), array(), _S_VERSION );
-
-	wp_style_add_data( 'slow-wheels-style', 'rtl', 'replace' );
-
-	wp_enqueue_script( 'slow-wheels-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), _S_VERSION, true );
-
-	wp_enqueue_script( 'nav-scrolled', get_template_directory_uri() . '/assets/js/nav-scroll.js', array(), _S_VERSION, true );
-
-	if ( is_front_page() ) {
-	wp_enqueue_script( 'img-swapper', get_template_directory_uri() . '/assets/js/img_swapper.js', array(), _S_VERSION, true );
-	}
-
-	/* If we have a gallery run the script to ani each image in */
-	if ( strpos( $page->page_content,'[gallery') === true) {
-	wp_enqueue_script( 'add-gallery-class', get_template_directory_uri() . '/assets/js/gallery_add_class.js', array(), _S_VERSION, true );
-	}
-
-  if ( is_page_template( 'gallery-page.php' ) ) {
-      wp_enqueue_script( 'add-gallery-class', get_template_directory_uri() . '/assets/js/gallery_add_class.js', array(), _S_VERSION, true );
-  }
-
-	wp_enqueue_script( 'aos-script', 'https://unpkg.com/aos@next/dist/aos.js');
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'slow_wheels_scripts' );
+#get_template_part( 'framework/functions/slow-wheels-enqueue' );
 
 /**
  * Implement the Custom Header feature.
@@ -200,11 +229,10 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 /**
- * Customize Image Gallery Control
- * <?php the_featured_image_gallery(); ?>
+ * <?php slow_wheels_sponsor_logos(); ?>
  * see https://make.xwp.co/2016/08/12/image-gallery-control-for-the-customizer/
  */
-function the_featured_image_gallery( $atts = array() ) {
+function slow_wheels_sponsor_logos( $atts = array() ) {
     $setting_id = 'featured_image_gallery';
     $ids_array = get_theme_mod( $setting_id );
     if ( is_array( $ids_array ) && ! empty( $ids_array ) ) {
@@ -213,49 +241,27 @@ function the_featured_image_gallery( $atts = array() ) {
     }
 }
 
-/**
- * Customize Image Gallery Control
- * Shorcode [featured_image_gallery]
- * see https://make.xwp.co/2016/08/12/image-gallery-control-for-the-customizer/
- */
-function featured_image_gallery_shortcode( $atts ) {
-    $ids_array = get_theme_mod( 'featured_image_gallery' );
-    if ( is_array( $ids_array ) && ! empty( $ids_array ) ) {
-        $ids = implode( ',', $ids_array );
-        $atts = ['include' => $ids ];
-    }
-    return gallery_shortcode( $atts );
-}
-add_shortcode( 'featured_image_gallery', 'featured_image_gallery_shortcode' );
-
-
-function wfa_custom_new_menu() {
-  register_nav_menus(
-    array(
-      'sitemap' => __( 'Sitemap' ),
-      'downloadable-content' => __( 'Downloadable Content' )
-    )
-  );
-}
-
-add_action( 'init', 'wfa_custom_new_menu' );
-
-
-function my_login_logo() { ?>
+// Change admin login image to site logo
+function slow_wheels_login_logo() {
+	$logo = get_theme_mod( 'custom_logo' );
+	$image = wp_get_attachment_image_src( $logo , 'full' );
+	$image_url = $image[0];
+	?>
   <style type="text/css">
-		#login h1 a, .login h1 a {
+		#login h1 a,
+		.login h1 a {
 			display: inline-block;
-    	background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/defaults/images/wfa_logo.png);
+    	background-image: url( <?php	echo $image_url ?> );
 			background-repeat: no-repeat;
     }
   </style>
-<?php }
-add_action( 'login_enqueue_scripts', 'my_login_logo' );
+	<?php
+}
+add_action( 'login_enqueue_scripts', 'slow_wheels_login_logo' );
 
 
-add_action( 'init', 'cp_change_post_object' );
-// Change dashboard Posts to News
-function cp_change_post_object() {
+// Change admin dashboard Posts to News
+function slow_wheels_change_post_object() {
     $get_post_type = get_post_type_object('post');
     $labels = $get_post_type->labels;
         $labels->name = 'News';
@@ -272,21 +278,25 @@ function cp_change_post_object() {
         $labels->menu_name = 'News';
         $labels->name_admin_bar = 'News';
 }
+add_action( 'init', 'slow_wheels_change_post_object' );
 
-// Truncate post thumb text, use echo excerpt(30) in place of the_excerpt() or the_content()
-function excerpt($limit) {
+// Truncate post thumb text, use `echo $slow_wheels_post_excerpt(30)` in place of the_excerpt()
+function slow_wheels_post_excerpt( $limit ) {
   $excerpt = explode(' ', get_the_excerpt(), $limit);
-  if (count($excerpt)>=$limit) {
-    array_pop($excerpt);
+  if (
+		count( $excerpt )>= $limit ) {
+    array_pop( $excerpt );
     $excerpt = implode(" ",$excerpt).'...';
-  } else {
+
+	} else {
     $excerpt = implode(" ",$excerpt);
   }
   $excerpt = preg_replace('`[[^]]*]`','',$excerpt);
   return $excerpt;
 }
 
-function content($limit) {
+// Truncate post thumb text, use `echo $slow_wheels_page_content(30)` in place of the_content()
+function slow_wheels_page_content($limit) {
   $content = explode(' ', get_the_content(), $limit);
   if (count($content)>=$limit) {
     array_pop($content);
@@ -300,94 +310,92 @@ function content($limit) {
   return $content;
 }
 
+#if( ! function_exists( 'slow_wheels_comments' ) ) {
+/**
+ * Template for comments and pingbacks. Coppied from Fury theme
+ *
+ * To override this walker in a child theme without modifying the comments template
+ * simply create your own slow_wheels_comments(), and that function will be used instead.
+ *
+ * Used as a callback by wp_list_comments() for displaying the comments.
+ *
+ * @since 1.0
+ */
+function slow_wheels_comments( $comment, $args, $depth ) {
+	$GLOBALS['comment'] = $comment;
+  switch ( $comment->comment_type ) {
+    case 'pingback':
+    case 'trackback':
 
-if( ! function_exists( 'sw_comment' ) ) {
-  /**
-   * Template for comments and pingbacks.
-   *
-   * To override this walker in a child theme without modifying the comments template
-   * simply create your own sw_comment(), and that function will be used instead.
-   *
-   * Used as a callback by wp_list_comments() for displaying the comments.
-   *
-   * @since 1.0
-   */
-  function sw_comment( $comment, $args, $depth ) {
-  	$GLOBALS['comment'] = $comment;
-    switch ( $comment->comment_type ) {
-      case 'pingback':
-      case 'trackback':
+    break;
+    default: // Normal Comments
+      global $post; ?>
+      <div id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
+			  <div class="comment_author-ava">
+           <?php echo get_avatar( $comment, 50 ); ?>
+       	</div>
 
-      break;
-      default: // Normal Comments
-        global $post; ?>
-        <div id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
-				  <div class="comment_author-ava">
-	           <?php echo get_avatar( $comment, 50 ); ?>
-	       	</div>
+        <div class="comment-body">
 
-          <div class="comment-body">
+					<h4 class="comment_author-name">
+						<?php echo get_comment_author(); ?>
+						<?php
+						// If current post author is also comment author, make it known visually.
+						if( $comment->user_id === $post->post_author ) {
+							echo '<i class="fa fa-star"></i> ';
+						} ?>
+					</h4>
+          <?php comment_text(); ?>
 
-						<h4 class="comment_author-name">
-							<?php echo get_comment_author(); ?>
-							<?php
-							// If current post author is also comment author, make it known visually.
-							if( $comment->user_id === $post->post_author ) {
-								echo '<i class="fa fa-star"></i> ';
-							} ?>
-						</h4>
-            <?php comment_text(); ?>
-
-            <?php if( '0' == $comment->comment_approved ): ?>
-            <div class="iziToast iziToast-info">
-              <div class="iziToast-body" style="padding-left: 33px;">
-                <i class="iziToast-icon icon-flag"></i>
-                <strong><?php esc_html_e( 'Info', 'slow_wheels' ); ?></strong>
-                <p><?php esc_html_e( 'Your comment is awaiting moderation.', 'slow_wheels' ); ?></p>
-              </div>
-
-							<button class="iziToast-close"></button>
+          <?php if( '0' == $comment->comment_approved ): ?>
+          <div class="iziToast iziToast-info">
+            <div class="iziToast-body" style="padding-left: 33px;">
+              <i class="iziToast-icon icon-flag"></i>
+              <strong><?php esc_html_e( 'Info', 'slow_wheels' ); ?></strong>
+              <p><?php esc_html_e( 'Your comment is awaiting moderation.', 'slow_wheels' ); ?></p>
             </div>
-            <?php endif; ?>
+
+						<button class="iziToast-close"></button>
+          </div>
+          <?php endif; ?>
 
 
-						<div class="comment-footer">
-            	<div class="column">
-              	<span class="comment-meta">
-                  <?php
-                	printf( '<time datetime="%s">%s</time>', get_comment_time( 'c' ),
-                  	/* translators: 1: date, 2: time */
-                  	sprintf( esc_html__( '%1$s at %2$s', 'slow_wheels' ), get_comment_date(), get_comment_time() )
-									); ?>
-                </span>
-              </div>
-
-							<div class="column">
-              <?php
-              // Comment Reply
-              comment_reply_link( array_merge(
-              	$args,
-								array(
-                	'reply_text'    => '<i class="icon-reply"></i>' . esc_html__( 'Reply', 'slow_wheels' ),
-                  'depth'         => $depth,
-                  'max_depth'     => $args['max_depth']
-                )
-              ) );
-              // Comment Edit (Administrators)
-              edit_comment_link( ' | <i class="fa fa-edit"></i>' . esc_html__( 'Edit', 'slow_wheels' ) ); ?>
+					<div class="comment-footer">
+          	<div class="column">
+            	<span class="comment-meta">
+                <?php
+              	printf( '<time datetime="%s">%s</time>', get_comment_time( 'c' ),
+                	/* translators: 1: date, 2: time */
+                	sprintf( esc_html__( '%1$s at %2$s', 'slow_wheels' ), get_comment_date(), get_comment_time() )
+								); ?>
+              </span>
             </div>
+
+						<div class="column">
+            <?php
+            // Comment Reply
+            comment_reply_link( array_merge(
+            	$args,
+							array(
+              	'reply_text'    => '<i class="icon-reply"></i>' . esc_html__( 'Reply', 'slow_wheels' ),
+                'depth'         => $depth,
+                'max_depth'     => $args['max_depth']
+              )
+            ) );
+            // Comment Edit (Administrators)
+            edit_comment_link( ' | <i class="fa fa-edit"></i>' . esc_html__( 'Edit', 'slow_wheels' ) ); ?>
           </div>
         </div>
       </div>
-    <?php
-      break;
-    }
+    </div>
+  <?php
+    break;
   }
 }
-
+#}
 
 /**
- * Comment Form Defaults
+ * Comment Form Defaults, coppied from Fury theme
  *
  * @since 1.0
  */
@@ -423,7 +431,7 @@ function slow_wheels_comment_form_defaults( $defaults ) {
 add_filter( 'comment_form_defaults', 'slow_wheels_comment_form_defaults' );
 
 /**
- * Comment Form Fields
+ * Comment Form Fields, coppied from Fury theme
  *
  * @since 1.0
  */
@@ -459,7 +467,7 @@ function slow_wheels_comment_form_fields( $fields ) {
 add_filter( 'comment_form_default_fields', 'slow_wheels_comment_form_fields' );
 
 /**
- * Move Comment Textarea to Bottom
+ * Move Comment Textarea to Bottom, coppied from Fury theme
  *
  * @since 1.0
  */
