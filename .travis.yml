@@ -18,6 +18,7 @@ before_install:
 - eval "$(ssh-agent -s)"
 - chmod 600 /tmp/bluehost
 - ssh-add /tmp/bluehost
+- gem install sass
 
 addons:
   ssh_known_hosts: ydn.wpm.mybluehost.me
