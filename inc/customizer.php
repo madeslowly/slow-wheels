@@ -616,7 +616,7 @@ function featured_image_gallery_customize_register( $wp_customize ) {
     }
 
     $wp_customize->add_section( 'featured_image_gallery_section', array(
-        'title'      => __( 'Sponsors' ),
+        'title'      => __( 'Sponsor Logos' ),
         'priority'   => 1,
     ) );
     $wp_customize->add_setting( 'featured_image_gallery', array(
