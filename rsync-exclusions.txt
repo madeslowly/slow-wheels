@@ -8,3 +8,4 @@ Gemfile.lock
 README.md
 rsync-exclusions.txt
 .bundle/
+.gitignore
