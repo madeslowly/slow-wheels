@@ -609,6 +609,10 @@ function slow_wheels_register_theme_customizer( $wp_customize ) {
 
 add_action( 'customize_register', 'slow_wheels_register_theme_customizer');
 
+
+/**
+ * 
+ */
 function featured_image_gallery_customize_register( $wp_customize ) {
 
     if ( ! class_exists( 'CustomizeImageGalleryControl\Control' ) ) {
@@ -647,4 +651,4 @@ function numag_remove_sections( $wp_customize ) {
 	$wp_customize->remove_section('background_image');
 	//$wp_customize->remove_section('title_tagline');
 }
-add_action( 'customize_register', 'numag_remove_sections');
+#add_action( 'customize_register', 'numag_remove_sections');
