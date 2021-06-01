@@ -1,6 +1,10 @@
-.*
+.git/
 sass
+.sass-cache/
+.travis.yml
 bluehost.enc
 Gemfile
 Gemfile.lock
 README.md
+rsync-exclusions.txt
+.bundle/
