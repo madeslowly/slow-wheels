@@ -62,10 +62,10 @@ function slow_wheels_register_scripts() {
 
 	/* If we have a gallery run the script to ani each image in */
 	/* This need to be conditional so we dont load on every page */
-	if ( has_shortcode( $post->post_content, '[gallery]') ) {
+	#if ( has_shortcode( $post->post_content, '[gallery') ) {
 		wp_enqueue_script( 'add-gallery-class', slow_wheels_js . 'gallery_add_class.js', array(), '', true );
-	}
-	
+	#}
+
 	wp_enqueue_script( 'aos-script', 'https://unpkg.com/aos@next/dist/aos.js', array(), '', true);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
