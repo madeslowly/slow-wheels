@@ -21,7 +21,7 @@ before_install:
 - gem install sass
 
 addons:
-  ssh_known_hosts: $do_ip
+  ssh_known_hosts: 188.166.156.227
 
 script:
 - gem install bundler
