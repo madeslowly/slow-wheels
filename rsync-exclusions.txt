@@ -1,0 +1,13 @@
+.git/
+sass
+.sass-cache/
+.travis.yml
+bluehost.enc
+Gemfile
+Gemfile.lock
+README.md
+.bundle/
+.gitignore
+.gitmodules
+_scripts/
+.DS_Store
