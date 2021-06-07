@@ -40,7 +40,7 @@ function slow_wheels_register_styles() {
 
 	wp_enqueue_style( 'fontawesome-free-5.11.2-web', 'https://pro.fontawesome.com/releases/v5.10.0/css/all.css' ) ;
 
-	wp_enqueue_style( 'Quicksand-font', 'https://fonts.googleapis.com/css2?family=Quicksand&display=swap' );
+	wp_enqueue_style( 'Quicksand-font', 'https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap' );
 
 	wp_enqueue_style( 'slow-wheels', get_stylesheet_uri(), array(), _S_VERSION , 'all' );
 
