@@ -75,7 +75,7 @@
 		animation-fill-mode: forwards
 
 	.visible
-		animation: 1.2s cubic-bezier(.67,.55,.44,1.16) ani_zoom_in
+		animation: .8s cubic-bezier(.67,.55,.44,1.16) ani_zoom_in
 		animation-fill-mode: forwards
 
 	.hidden
@@ -99,11 +99,12 @@
 
 	.hero__para
 		position: absolute
-		right: 0
+		left: 0
 		bottom: 0
 		color: $royal-blue
 		z-index: -1
 		margin: 0
+		font-size: 1.2rem
 
 	h1
 		margin: 0
@@ -128,7 +129,7 @@
 
 		h1
 			text-transform: uppercase
-			font-weight: 200
+			//font-weight: 200
 			letter-spacing: 3px
 
 		& ~ .hero__para
@@ -138,6 +139,7 @@
 	.title_2,
 	.title_3
 		border-bottom: solid 1px rgba($royal-blue, 1)
+		visibility: visible
 
 /* Hero titles on hover, image swaps are done with img_swapper.js --------------------------------------------- */
 
@@ -147,6 +149,7 @@
 	.title_3
 		//transform: translateX(100%)
 		opacity: 0
+		visibility: hidden
 
 
 /* Contact page elements --------------------------------------------- */

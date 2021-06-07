@@ -4,29 +4,29 @@
 	margin-left: auto
 	margin-right: auto
 
-
 // Column width with margin
 @mixin column-width($numberColumns: 3)
 	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns )
 
+//--------------------------------------------------------------
+//  Animations
+//--------------------------------------------------------------
+
 @mixin default-trans
 	transition: all .8s ease-in-out
-
 
 @mixin default-link-trans
 	transition: all .2s ease-in-out
 
-
 @mixin ani_zoom_in
 	@keyframes ani_zoom_in
 		0%
-			transform: scale(0.5) translateX(0)
+			transform: scale(0.9) translateX(0)
 			opacity: 0
 
 		100%
 			transform: scale(1) translateX(0)
 			opacity: 1
-
 
 @mixin ani_zoom_out
 	@keyframes ani_zoom_out
@@ -38,6 +38,10 @@
 			//transform: scale(0) translateX(0)
 			opacity: 0
 
+
+//--------------------------------------------------------------
+//  Shadows
+//--------------------------------------------------------------
 
 @mixin hero_img_shadow( $color )
 	box-shadow: 14px 16px 0 20px rgba($color , 1)
