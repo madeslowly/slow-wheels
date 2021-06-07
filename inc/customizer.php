@@ -74,48 +74,65 @@ function slow_wheels_register_theme_customizer( $wp_customize ) {
 		'description'    => __( 'Set editable elements Slow Wheels theme.', 'slow_wheels' ),
 	) );
 
+		////////////////////////////// WFA MISSION //////////////////////////////
+
+		$wp_customize->add_section('wfa_mission' , array(
+				'title'    		=> __('WFA Mission Statement','slow_wheels'),
+				'description' => __( 'Short paragraph detailing the WFA mission.', 'slow_wheels' ),
+				'panel'    		=> 'slow_wheels_panel',
+				'priority' 		=> 1
+		) );
+
+		$wp_customize->add_setting( 'wfa_mission_setting', array(
+			 'default'           => __( 'Wheels For All Mission Statement', 'slow_wheels' ),
+			 'sanitize_callback' => 'sanitize_text'
+		) );
+
+		$wp_customize->add_control( new WP_Customize_Control(
+			$wp_customize, 'wfa_mission', array(
+				'label'    => __( 'Mission Statement', 'slow_wheels' ),
+				'priority' => 1,
+				'section'  => 'wfa_mission',
+				'settings' => 'wfa_mission_setting',
+				'type'     => 'textarea'
+		) ) );
 
 		////////////////////////////// LANDING PAGE //////////////////////////////
 		$wp_customize->add_section('landing_page' , array(
 				'title'    		=> __('Landing Page','slow_wheels'),
-				'description' => __( 'Edit Landing Page elements, the 3 titles, 3 paragraphs, 3 images and the mission statement at the bottom.', 'slow_wheels' ),
+				'description' => __( 'Landing Page elements consist of 3 headers, 3 (short) paragraphs and 4 images. The headers hide the paragraphs until someone hovers over.', 'slow_wheels' ),
 				'panel'    		=> 'slow_wheels_panel',
 				'priority' 		=> 1
 		) );
 
 			/**************************** SETTINGS ****************************/
 			$wp_customize->add_setting( 'landing_page_header_1_setting', array(
-				 'default'           => __( 'Default Text', 'slow_wheels' ),
+				 'default'           => __( 'ACCESSIBLE CYCLING', 'slow_wheels' ),
 				 'sanitize_callback' => 'sanitize_text'
 			) );
 
 			$wp_customize->add_setting( 'landing_page_para_1_setting', array(
-				 'default'           => __( 'Default Text', 'slow_wheels' ),
+				 'default'           => __( 'Inclusive cycling for everybody. Get fit, learn to cycle or just for fun.', 'slow_wheels' ),
 				 'sanitize_callback' => 'sanitize_text'
 			) );
 
 			$wp_customize->add_setting( 'landing_page_header_2_setting', array(
-				 'default'           => __( 'Default Text', 'slow_wheels' ),
+				 'default'           => __( 'Safe space for all', 'slow_wheels' ),
 				 'sanitize_callback' => 'sanitize_text'
 			) );
 
 			$wp_customize->add_setting( 'landing_page_para_2_setting', array(
-				 'default'           => __( 'Default Text', 'slow_wheels' ),
+				 'default'           => __( 'Cycle freely, without the worry of other road users. We might even play your favourite song.', 'slow_wheels' ),
 				 'sanitize_callback' => 'sanitize_text'
 			) );
 
 			$wp_customize->add_setting( 'landing_page_header_3_setting', array(
-				 'default'           => __( 'Default Text', 'slow_wheels' ),
+				 'default'           => __( 'supportive environment', 'slow_wheels' ),
 				 'sanitize_callback' => 'sanitize_text'
 			) );
 
 			$wp_customize->add_setting( 'landing_page_para_3_setting', array(
-				 'default'           => __( 'Default Text', 'slow_wheels' ),
-				 'sanitize_callback' => 'sanitize_text'
-			) );
-
-			$wp_customize->add_setting( 'landing_page_mission_setting', array(
-				 'default'           => __( 'Default Text', 'slow_wheels' ),
+				 'default'           => __( 'All our sessions are overseen by the Wheels For All team, so if its a ride along buddy or a wobbly wheel, we have you covered.', 'slow_wheels' ),
 				 'sanitize_callback' => 'sanitize_text'
 			) );
 
@@ -143,8 +160,8 @@ function slow_wheels_register_theme_customizer( $wp_customize ) {
 
 			/* Deafulat image when no hover event */
 			$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'landing_page_image_default', array(
-					'label' => 'Upload Image',
-					'description' => __( 'Default image when no one is hovering over a title.' ),
+					'label' => 'Main Image',
+					'description' => __( 'This is the first image people see, when not hovering over one of the headers.' ),
 					'priority' => 1,
 					'section'  => 'landing_page',
 					'settings' => 'landing_page_img_default_setting',
@@ -157,9 +174,8 @@ function slow_wheels_register_theme_customizer( $wp_customize ) {
 			/* BLOCK 1 */
 			$wp_customize->add_control( new WP_Customize_Control(
 				$wp_customize, 'landing_page_header_1', array(
-					'label'    => __( 'Title 1', 'slow_wheels' ),
+					'label'    => __( 'Header One', 'slow_wheels' ),
 					'priority' => 2,
-					'description' => __( 'One of three titles.' ),
 					'section'  => 'landing_page',
 					'settings' => 'landing_page_header_1_setting',
 					'type'     => 'text'
@@ -167,17 +183,16 @@ function slow_wheels_register_theme_customizer( $wp_customize ) {
 
 			$wp_customize->add_control( new WP_Customize_Control(
 				$wp_customize, 'landing_page_para_1', array(
-		      'label'    => __( 'Paragraph 1', 'slow_wheels' ),
+		      'label'    => __( 'Paragraph One', 'slow_wheels' ),
 					'priority' => 3,
-					'description' => __( 'One of three paragraphs. Revealed when user hovers over a title.' ),
 		      'section'  => 'landing_page',
 		      'settings' => 'landing_page_para_1_setting',
 		      'type'     => 'textarea'
 			) ) );
 
 			$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'landing_page_image_1', array(
-					'label' => 'Upload Image',
-					'description' => __( 'Image when we are hovering over title 1.' ),
+					'label' => 'Image One',
+					'description' => __( 'This is image revealed when we are hovering over header one.' ),
 					'priority' => 4,
 					'section'  => 'landing_page',
 					'settings' => 'landing_page_img_1_setting',
@@ -190,9 +205,8 @@ function slow_wheels_register_theme_customizer( $wp_customize ) {
 			/* BLOCK 2 */
 			$wp_customize->add_control( new WP_Customize_Control(
 				$wp_customize, 'landing_page_header_2', array(
-					'label'    => __( 'Title 2', 'slow_wheels' ),
+					'label'    => __( 'Header Two', 'slow_wheels' ),
 					'priority' => 5,
-					'description' => __( 'One of three titles.' ),
 					'section'  => 'landing_page',
 					'settings' => 'landing_page_header_2_setting',
 					'type'     => 'text'
@@ -200,17 +214,16 @@ function slow_wheels_register_theme_customizer( $wp_customize ) {
 
 			$wp_customize->add_control( new WP_Customize_Control(
 				$wp_customize, 'landing_page_para_2', array(
-		      'label'    => __( 'Paragraph 2', 'slow_wheels' ),
+		      'label'    => __( 'Paragraph Two', 'slow_wheels' ),
 					'priority' => 6,
-					'description' => __( 'One of three paragraphs. Revealed when user hovers over a title.' ),
 		      'section'  => 'landing_page',
 		      'settings' => 'landing_page_para_2_setting',
 		      'type'     => 'textarea'
 			) ) );
 
 			$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'landing_page_image_2', array(
-					'label' => 'Upload Image',
-					'description' => __( 'Image when we are hovering over title 2.' ),
+					'label' => 'Image Two',
+					'description' => __( 'This is image revealed when we are hovering over header two.' ),
 					'priority' => 7,
 					'section'  => 'landing_page',
 					'settings' => 'landing_page_img_2_setting',
@@ -223,9 +236,8 @@ function slow_wheels_register_theme_customizer( $wp_customize ) {
 			/* BLOCK 3 */
 			$wp_customize->add_control( new WP_Customize_Control(
 				$wp_customize, 'landing_page_header_3', array(
-					'label'    => __( 'Title 3', 'slow_wheels' ),
+					'label'    => __( 'Header Three', 'slow_wheels' ),
 					'priority' => 8,
-					'description' => __( 'One of three titles.' ),
 					'section'  => 'landing_page',
 					'settings' => 'landing_page_header_3_setting',
 					'type'     => 'text'
@@ -233,17 +245,16 @@ function slow_wheels_register_theme_customizer( $wp_customize ) {
 
 			$wp_customize->add_control( new WP_Customize_Control(
 				$wp_customize, 'landing_page_para_3', array(
-		      'label'    => __( 'Paragraph 3', 'slow_wheels' ),
+		      'label'    => __( 'Paragraph Three', 'slow_wheels' ),
 					'priority' => 9,
-					'description' => __( 'One of three landing page paragraphs. Revealed on Title hover.' ),
 		      'section'  => 'landing_page',
 		      'settings' => 'landing_page_para_3_setting',
 		      'type'     => 'textarea'
 			) ) );
 
 			$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'landing_page_image_3', array(
-					'label' => 'Upload Image',
-					'description' => __( 'Image when we are hovering over title 3.' ),
+					'label' => 'Image Three',
+					'description' => __( 'This is image revealed when we are hovering over header three.' ),
 					'priority' => 10,
 					'section'  => 'landing_page',
 					'settings' => 'landing_page_img_3_setting',
@@ -253,143 +264,7 @@ function slow_wheels_register_theme_customizer( $wp_customize ) {
 											'change' => 'Change Image',
 			) ) ) );
 
-			/* MISSION */
-			$wp_customize->add_control( new WP_Customize_Control(
-				$wp_customize, 'wfa_mission', array(
-		      'label'    => __( 'WFA Mission Statement', 'slow_wheels' ),
-					'priority' => 11,
-		      'section'  => 'landing_page',
-		      'settings' => 'landing_page_mission_setting',
-		      'type'     => 'textarea'
-			) ) );
-
-			////////////////////////////// END LANDING PAGE //////////////////////////////
-
-			////////////////////////////// BOOKING PAGE //////////////////////////////
-
-			$wp_customize->add_section('booking_page' , array(
-					'title'    => __('Booking Page','slow_wheels'),
-					'panel'    => 'slow_wheels_panel',
-					'priority' => 2
-			) );
-
-			/**************************** SETTINGS ****************************/
-			$wp_customize->add_setting( 'booking_page_subtitle_setting', array(
-				 'default'           => __( 'Default Text', 'slow_wheels' ),
-				 'sanitize_callback' => 'sanitize_text'
-			) );
-
-			$wp_customize->add_setting( 'booking_page_instruction_setting', array(
-				 'default'           => __( 'Default Text', 'slow_wheels' ),
-				 'sanitize_callback' => 'sanitize_text'
-			) );
-
-			$wp_customize->add_setting( 'booking_page_hero_setting', array(
-					'default' => get_theme_file_uri('assets/defaults/images/landing_image_1.jpg'), // Add Default Image URL
-					'sanitize_callback' => 'esc_url_raw'
-			) );
-
-			/**************************** CONTROLS ****************************/
-
-			/* HERO IMAGE */
-			$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'booking_page_hero', array(
-					'label' => 'Hero Image',
-					'description' => __( 'Large image at the top of the page.' ),
-					'priority' => 3,
-					'section' => 'booking_page',
-					'settings' => 'booking_page_hero_setting',
-					'button_labels' => array(// All These labels are optional
-											'select' => 'Select Image',
-											'remove' => 'Remove Image',
-											'change' => 'Change Image',
-			) ) ) );
-
-		/* STRAPLINE */
-		$wp_customize->add_control( new WP_Customize_Control(
-			$wp_customize, 'booking_strapline', array(
-	      'label'    => __( 'Booking Page Subtitle.', 'slow_wheels' ),
-				'description' => __( 'Subtitle below the page title.' ),
-				'priority' => 1,
-				'section' => 'booking_page',
-	      'settings' => 'booking_page_subtitle_setting',
-	      'type'     => 'text'
-		) ) );
-
-		/* INSTRUCTION */
-		$wp_customize->add_control( new WP_Customize_Control(
-			$wp_customize, 'booking_instruction', array(
-	      'label'    => __( 'Booking instructions', 'slow_wheels' ),
-				'description' => __( 'A single paragraph immediately above the booking form. ' ),
-				'priority' => 2,
-				'section' => 'booking_page',
-	      'settings' => 'booking_page_instruction_setting',
-	      'type'     => 'textarea'
-		) ) );
-
-		////////////////////////////// END BOOKING PAGE //////////////////////////////
-
-		////////////////////////////// GALLERY PAGE //////////////////////////////
-
-		$wp_customize->add_section('gallery_page' , array(
-				'title'    => __('Gallery Page','slow_wheels'),
-				'panel'    => 'slow_wheels_panel',
-				'priority' => 3
-		) );
-
-		/**************************** SETTINGS ****************************/
-		$wp_customize->add_setting( 'gallery_page_subtitle_setting', array(
-			 'default'           => __( 'Default Text', 'slow_wheels' ),
-			 'sanitize_callback' => 'sanitize_text'
-		) );
-
-		$wp_customize->add_setting( 'gallery_page_instruction_setting', array(
-			 'default'           => __( 'Default Text', 'slow_wheels' ),
-			 'sanitize_callback' => 'sanitize_text'
-		) );
-
-		$wp_customize->add_setting( 'gallery_page_hero_setting', array(
-				'default' => get_theme_file_uri('assets/defaults/images/landing_image_1.jpg'), // Add Default Image URL
-				'sanitize_callback' => 'esc_url_raw'
-		) );
-
-		/**************************** CONTROLS ****************************/
-
-		/* HERO IMAGE */
-		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'gallery_page_hero', array(
-				'label' => 'Hero Image',
-				'description' => __( 'Large image at the top of the page.' ),
-				'priority' => 3,
-				'section' => 'gallery_page',
-				'settings' => 'gallery_page_hero_setting',
-				'button_labels' => array(// All These labels are optional
-										'select' => 'Select Image',
-										'remove' => 'Remove Image',
-										'change' => 'Change Image',
-		) ) ) );
-
-	/* STRAPLINE */
-	$wp_customize->add_control( new WP_Customize_Control(
-		$wp_customize, 'gallery_strapline', array(
-			'label'    => __( 'Gallery Page Subtitle.', 'slow_wheels' ),
-			'description' => __( 'Subtitle below the page title.' ),
-			'priority' => 1,
-			'section' => 'gallery_page',
-			'settings' => 'gallery_page_subtitle_setting',
-			'type'     => 'text'
-	) ) );
-
-	/* INSTRUCTION */
-	$wp_customize->add_control( new WP_Customize_Control(
-		$wp_customize, 'gallery_instruction', array(
-			'label'    => __( 'Gallery blurb', 'slow_wheels' ),
-			'description' => __( 'A single paragraph immediately above the image gallery. ' ),
-			'priority' => 2,
-			'section' => 'gallery_page',
-			'settings' => 'gallery_page_instruction_setting',
-			'type'     => 'textarea'
-	) ) );
-
-	////////////////////////////// END GALLERY PAGE //////////////////////////////
+	////////////////////////////// END LANDING PAGE //////////////////////////////
 
 
 	////////////////////////////// CONTACT PAGE //////////////////////////////
@@ -611,7 +486,7 @@ add_action( 'customize_register', 'slow_wheels_register_theme_customizer');
 
 
 /**
- * 
+ *
  */
 function featured_image_gallery_customize_register( $wp_customize ) {
 
