@@ -38,6 +38,10 @@ function slow_wheels_register_styles() {
 
 	wp_enqueue_style( 'animate-on-scroll', 'https://unpkg.com/aos@next/dist/aos.css' );
 
+	wp_enqueue_style( 'fontawesome-free-5.11.2-web', 'https://pro.fontawesome.com/releases/v5.10.0/css/all.css' ) ;
+
+	wp_enqueue_style( 'Quicksand-font', 'https://fonts.googleapis.com/css2?family=Quicksand&display=swap' );
+
 	wp_enqueue_style( 'slow-wheels', get_stylesheet_uri(), array(), _S_VERSION , 'all' );
 
 	wp_style_add_data( 'slow-wheels', 'rtl', 'replace' );
@@ -266,24 +270,24 @@ add_action( 'login_enqueue_scripts', 'slow_wheels_login_logo' );
 
 
 // Change admin dashboard Posts to News
-function slow_wheels_change_post_object() {
-    $get_post_type = get_post_type_object('post');
-    $labels = $get_post_type->labels;
-        $labels->name = 'News';
-        $labels->singular_name = 'News';
-        $labels->add_new = 'Add News';
-        $labels->add_new_item = 'Add News';
-        $labels->edit_item = 'Edit News';
-        $labels->new_item = 'News';
-        $labels->view_item = 'View News';
-        $labels->search_items = 'Search News';
-        $labels->not_found = 'No News found';
-        $labels->not_found_in_trash = 'No News found in Trash';
-        $labels->all_items = 'All News';
-        $labels->menu_name = 'News';
-        $labels->name_admin_bar = 'News';
-}
-add_action( 'init', 'slow_wheels_change_post_object' );
+// function slow_wheels_change_post_object() {
+//     $get_post_type = get_post_type_object('post');
+//     $labels = $get_post_type->labels;
+//         $labels->name = 'News';
+//         $labels->singular_name = 'News';
+//         $labels->add_new = 'Add News';
+//         $labels->add_new_item = 'Add News';
+//         $labels->edit_item = 'Edit News';
+//         $labels->new_item = 'News';
+//         $labels->view_item = 'View News';
+//         $labels->search_items = 'Search News';
+//         $labels->not_found = 'No News found';
+//         $labels->not_found_in_trash = 'No News found in Trash';
+//         $labels->all_items = 'All News';
+//         $labels->menu_name = 'News';
+//         $labels->name_admin_bar = 'News';
+// }
+#add_action( 'init', 'slow_wheels_change_post_object' );
 
 // Truncate post thumb text, use `echo $slow_wheels_post_excerpt(30)` in place of the_excerpt()
 function slow_wheels_post_excerpt( $limit ) {
