@@ -52,7 +52,7 @@ get_header();
 
 	<section class="wfa__container">
 		<div class="wfa__mission" data-aos="fade-up">
-			<h2 class="wfa__mission--text" ><?php echo get_theme_mod( 'wfa_mission_text'); ?></h2>
+			<h2 class="wfa__mission--text" ><?php echo get_theme_mod( 'wfa_mission_setting'); ?></h2>
 			<div class="h__line"></div></div>
 		<div class="wfa__cta">
 			<a data-aos="fade-right" href="/book-session/"><span class="wfa__btn wfa__btn--bright wfa__btn--solid">BOOK A SESSION</span></a>

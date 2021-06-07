@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main contact__page not_home">
+	<main id="primary" class="site-main">
 		<?php
 		while ( have_posts() ) :
 			the_post();
@@ -23,9 +23,9 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-
-		<h2 class="wfa__strapline" ><?php echo get_theme_mod( 'contact_page_subtitle_setting'); ?></h2>
-
+		<div class="sw_entry_content-page">
+			<h2 class="strapline" ><?php echo get_theme_mod( 'contact_page_subtitle_setting'); ?></h2>
+		</div>
 		<section class="wfa__container wfa__flexwrap">
 			<div class="wfa__contact--form">
 				<h2 class="wfa__header" ><?php echo get_theme_mod( 'contact_page_form_header_setting'); ?></h2>
