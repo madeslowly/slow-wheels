@@ -12,7 +12,6 @@
 
 get_header();
 
-
 ?>
 
 	<main id="primary" class="site-main front__page h__100">
@@ -50,11 +49,11 @@ get_header();
 		</div>
 	</main>
 
-	<section class="wfa__container">
-		<div class="wfa__mission" data-aos="fade-up">
-			<h2 class="wfa__mission--text" ><?php echo get_theme_mod( 'wfa_mission_setting'); ?></h2>
+	<section class="sw__container">
+		<div class="sw__mission" data-aos="fade-up">
+			<h2 class="sw__mission--text" ><?php echo get_theme_mod( 'wfa_mission_setting'); ?></h2>
 			<div class="h__line"></div></div>
-		<div class="wfa__cta">
+		<div class="sw__cta sw__flexwrap">
 			<a data-aos="fade-right" href="/book-session/"><span class="wfa__btn wfa__btn--bright wfa__btn--solid">BOOK A SESSION</span></a>
 			<a data-aos="fade-left" href=""><span class="wfa__btn wfa__btn--mute wfa__btn--wire">GET MORE INFO</span></a>
 		</div>

@@ -26,7 +26,7 @@ get_header();
 		<div class="sw_entry_content-page">
 			<h2 class="strapline" ><?php echo get_theme_mod( 'contact_page_subtitle_setting'); ?></h2>
 		</div>
-		<section class="wfa__container wfa__flexwrap">
+		<section class="sw__container sw__flexwrap">
 			<div class="wfa__contact--form">
 				<h2 class="wfa__header" ><?php echo get_theme_mod( 'contact_page_form_header_setting'); ?></h2>
 				<?php echo do_shortcode("[contact-form-7 id='695' title='Contact form 1']"); ?>
@@ -61,11 +61,11 @@ get_header();
 
 
 
-		<section class="wfa__container">
-			<div class="wfa__mission" data-aos="fade-up">
-				<h2 class="wfa__mission--text" ><?php echo get_theme_mod( 'wfa_mission_text'); ?></h2>
+		<section class="sw__container">
+			<div class="sw__mission" data-aos="fade-up">
+				<h2 class="sw__mission--text" ><?php echo get_theme_mod( 'wfa_mission_text'); ?></h2>
 				<div class="h__line"></div></div>
-			<div class="wfa__cta">
+			<div class="sw__cta">
 				<a data-aos="fade-right" href="/book-session/"><span class="wfa__btn wfa__btn--bright wfa__btn--solid">BOOK A SESSION</span></a>
 				<a data-aos="fade-left" href=""><span class="wfa__btn wfa__btn--mute wfa__btn--wire">GET MORE INFO</span></a>
 			</div>
