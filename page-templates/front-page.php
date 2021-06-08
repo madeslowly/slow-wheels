@@ -51,11 +51,11 @@ get_header();
 
 	<section class="sw__container">
 		<div class="sw__mission" data-aos="fade-up">
-			<h2 class="sw__mission--text" ><?php echo get_theme_mod( 'wfa_mission_setting'); ?></h2>
+			<h2 class="sw__mission--text" ><?php echo get_theme_mod( 'sw_mission_setting'); ?></h2>
 			<div class="h__line"></div></div>
 		<div class="sw__cta sw__flexwrap">
-			<a data-aos="fade-right" href="/book-session/"><span class="wfa__btn wfa__btn--bright wfa__btn--solid">BOOK A SESSION</span></a>
-			<a data-aos="fade-left" href=""><span class="wfa__btn wfa__btn--mute wfa__btn--wire">GET MORE INFO</span></a>
+			<a data-aos="fade-right" href="/book-session/"><span class="sw__btn sw__btn--bright sw__btn--solid">BOOK A SESSION</span></a>
+			<a data-aos="fade-left" href=""><span class="sw__btn sw__btn--mute sw__btn--wire">GET MORE INFO</span></a>
 		</div>
 	</section>
 

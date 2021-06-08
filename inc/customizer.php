@@ -76,24 +76,24 @@ function slow_wheels_register_theme_customizer( $wp_customize ) {
 
 		////////////////////////////// WFA MISSION //////////////////////////////
 
-		$wp_customize->add_section('wfa_mission' , array(
+		$wp_customize->add_section('sw_mission' , array(
 				'title'    		=> __('WFA Mission Statement','slow_wheels'),
 				'description' => __( 'Short paragraph detailing the WFA mission.', 'slow_wheels' ),
 				'panel'    		=> 'slow_wheels_panel',
 				'priority' 		=> 1
 		) );
 
-		$wp_customize->add_setting( 'wfa_mission_setting', array(
+		$wp_customize->add_setting( 'sw_mission_setting', array(
 			 'default'           => __( 'Wheels For All Mission Statement', 'slow_wheels' ),
 			 'sanitize_callback' => 'sanitize_text'
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Control(
-			$wp_customize, 'wfa_mission', array(
+			$wp_customize, 'sw_mission', array(
 				'label'    => __( 'Mission Statement', 'slow_wheels' ),
 				'priority' => 1,
-				'section'  => 'wfa_mission',
-				'settings' => 'wfa_mission_setting',
+				'section'  => 'sw_mission',
+				'settings' => 'sw_mission_setting',
 				'type'     => 'textarea'
 		) ) );
 

@@ -27,14 +27,14 @@ get_header();
 			<h2 class="strapline" ><?php echo get_theme_mod( 'contact_page_subtitle_setting'); ?></h2>
 		</div>
 		<section class="sw__container sw__flexwrap">
-			<div class="wfa__contact--form">
-				<h2 class="wfa__header" ><?php echo get_theme_mod( 'contact_page_form_header_setting'); ?></h2>
+			<div class="sw__contact--form">
+				<h2 class="sw__header" ><?php echo get_theme_mod( 'contact_page_form_header_setting'); ?></h2>
 				<?php echo do_shortcode("[contact-form-7 id='695' title='Contact form 1']"); ?>
 			</div>
 
 
-			<div class="wfa__contact--address">
-				<h2 class="wfa__header" ><?php echo get_theme_mod( 'contact_page_address_header_setting'); ?></h2>
+			<div class="sw__contact--address">
+				<h2 class="sw__header" ><?php echo get_theme_mod( 'contact_page_address_header_setting'); ?></h2>
 				<p><?php echo get_theme_mod( 'contact_page_address_line_1_setting'); ?></p>
 				<p><?php echo get_theme_mod( 'contact_page_address_line_2_setting'); ?></p>
 				<p><?php echo get_theme_mod( 'contact_page_address_line_3_setting'); ?></p>
@@ -46,12 +46,12 @@ get_header();
 
 			</div>
 
-			<div class="wfa__contact--direct">
-				<h2 class="wfa__header" >Contact Us Directly</h2>
-				<h3 class="wfa__header" >General Enquires</h3>
+			<div class="sw__contact--direct">
+				<h2 class="sw__header" >Contact Us Directly</h2>
+				<h3 class="sw__header" >General Enquires</h3>
 				<p><?php echo get_theme_mod( 'contact_page_general_tel_setting'); ?></p>
 				<p><?php echo get_theme_mod( 'contact_page_general_email_setting'); ?></p>
-				<h3 class="wfa__header" >Booking Enquires</h3>
+				<h3 class="sw__header" >Booking Enquires</h3>
 				<p><?php echo get_theme_mod( 'contact_page_booking_tel_setting'); ?></p>
 				<p><?php echo get_theme_mod( 'contact_page_booking_email_setting'); ?></p>
 			</div>
@@ -63,11 +63,11 @@ get_header();
 
 		<section class="sw__container">
 			<div class="sw__mission" data-aos="fade-up">
-				<h2 class="sw__mission--text" ><?php echo get_theme_mod( 'wfa_mission_text'); ?></h2>
+				<h2 class="sw__mission--text" ><?php echo get_theme_mod( 'sw_mission_text'); ?></h2>
 				<div class="h__line"></div></div>
 			<div class="sw__cta">
-				<a data-aos="fade-right" href="/book-session/"><span class="wfa__btn wfa__btn--bright wfa__btn--solid">BOOK A SESSION</span></a>
-				<a data-aos="fade-left" href=""><span class="wfa__btn wfa__btn--mute wfa__btn--wire">GET MORE INFO</span></a>
+				<a data-aos="fade-right" href="/book-session/"><span class="sw__btn sw__btn--bright sw__btn--solid">BOOK A SESSION</span></a>
+				<a data-aos="fade-left" href=""><span class="sw__btn sw__btn--mute sw__btn--wire">GET MORE INFO</span></a>
 			</div>
 		</section>
 
