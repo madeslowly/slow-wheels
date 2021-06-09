@@ -32,7 +32,7 @@ function slow_wheels_register_scripts() {
 
 	wp_enqueue_script( 'slow-wheels-navigation', slow_wheels_js . 'navigation.js', array(), '', true );
 
-	wp_enqueue_script( 'nav-scrolled', slow_wheels_js . 'nav-scroll.js', array(), '', true );
+	wp_enqueue_script( 'nav-scrolled', slow_wheels_js . 'navBarScroll.js', array(), '', true );
 
 	if ( is_front_page() ) {
 	wp_enqueue_script( 'img-swapper', slow_wheels_js . 'img_swapper.js', array(), '', true );
