@@ -11,6 +11,15 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
+	<!-- if we dont have a featured image, push content down by $hero-height -->
+	<?php
+
+		if (!has_post_thumbnail()) {
+			echo '<div class="no__feature"></div>';
+		}
+
+	?>
+
 	<?php slow_wheels_post_thumbnail(); ?>
 
 	<header class="">
