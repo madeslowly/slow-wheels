@@ -56,7 +56,7 @@ function slow_wheels_customize_partial_blogdescription() {
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function slow_wheels_customize_preview_js() {
-	wp_enqueue_script( 'slow-wheels-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), _S_VERSION, true );
+	wp_enqueue_script( 'slow-wheels-customizer', slow_wheels_js . 'customizer.js', array( 'customize-preview' ), _S_VERSION, true );
 }
 add_action( 'customize_preview_init', 'slow_wheels_customize_preview_js' );
 
