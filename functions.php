@@ -231,6 +231,16 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * Add custom styles to the WordPress Customizer
+ */
+function slow_wheels_customizer_styles() {
+
+	wp_enqueue_style( 'slow-wheels', get_template_directory_uri() . '/customizer.css' );
+
+}
+add_action( 'customize_controls_print_styles', 'slow_wheels_customizer_styles' );
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
