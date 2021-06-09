@@ -23,9 +23,6 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-		<div class="sw_entry_content-page">
-			<h2 class="strapline" ><?php echo get_theme_mod( 'contact_page_subtitle_setting'); ?></h2>
-		</div>
 		<section class="sw__container sw__flexwrap">
 			<div class="sw__contact--form">
 				<h2 class="sw__header" ><?php echo get_theme_mod( 'contact_page_form_header_setting'); ?></h2>

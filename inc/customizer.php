@@ -276,10 +276,6 @@ function slow_wheels_register_theme_customizer( $wp_customize ) {
 	) );
 
 	/**************************** SETTINGS ****************************/
-	$wp_customize->add_setting( 'contact_page_subtitle_setting', array(
-		 'default'           => __( 'Default Text', 'slow_wheels' ),
-		 'sanitize_callback' => 'sanitize_text'
-	) );
 
 	$wp_customize->add_setting( 'contact_page_form_header_setting', array(
 		 'default'           => __( 'Default Text', 'slow_wheels' ),
@@ -337,17 +333,6 @@ function slow_wheels_register_theme_customizer( $wp_customize ) {
 	) );
 
 	/**************************** CONTROLS ****************************/
-
-	/* STRAPLINE */
-	$wp_customize->add_control( new WP_Customize_Control(
-	$wp_customize, 'contact_strapline', array(
-		'label'    => __( 'Contact Page Subtitle.', 'slow_wheels' ),
-		'description' => __( 'Subtitle below the page title.' ),
-		'priority' => 1,
-		'section' => 'contact_page',
-		'settings' => 'contact_page_subtitle_setting',
-		'type'     => 'text'
-	) ) );
 
 	/* Form header */
 	$wp_customize->add_control( new WP_Customize_Control(
