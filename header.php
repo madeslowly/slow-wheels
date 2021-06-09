@@ -28,7 +28,7 @@
 
 	<!-- Preconnect for faster font loading -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	
+
 	<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
 
 	<?php wp_head(); ?>
@@ -52,7 +52,7 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'slow-wheels' ); ?></button>
+			<!--<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'slow-wheels' ); ?></button>-->
 			<?php
 			wp_nav_menu(
 				array(
@@ -62,5 +62,10 @@
 				)
 			);
 			?>
+			<div class="burger">
+				<div class="burger-line-1"></div>
+				<div class="burger-line-2"></div>
+				<div class="burger-line-3"></div>
+			</div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
