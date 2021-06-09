@@ -69,7 +69,6 @@
 <script>
 
 AOS.init({
-disable: false,
 duration: 600,
 easing: 'ease-in-out-cubic',
 disable: 'mobile'
