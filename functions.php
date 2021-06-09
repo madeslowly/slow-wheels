@@ -56,6 +56,9 @@ add_action( 'wp_enqueue_scripts', 'slow_wheels_register_styles' );
  */
 function slow_wheels_register_scripts() {
 
+	if ( !is_front_page() && !is_home()) {
+		wp_enqueue_script( 'slow-wheels-move-strapline', slow_wheels_js . 'moveSubheader.js', array(), '', true );
+	}
 	wp_enqueue_script( 'slow-wheels-navigation', slow_wheels_js . 'navigation.js', array(), '', true );
 
 	wp_enqueue_script( 'nav-scrolled', slow_wheels_js . 'navBarScroll.js', array(), '', true );
