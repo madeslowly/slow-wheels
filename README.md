@@ -25,7 +25,7 @@ There are three main navigations built into this theme, the primary navigation a
 
 Primary navigation is the `primary menu` at the top of every page and post. The menu is set in `Appearance --> Menus`
 
-![](/assets/github/images/menu-primary.png) ![](/assets/github/images/menu-primary-structure.png)
+![](/assets/github/images/menu-primary.png)![](/assets/github/images/menu-primary-structure.png)
 
 
 ## Frequently Asked Questions
