@@ -17,3 +17,5 @@ composer.json
 package.json
 
 phpcs.xml.dist
+
+*.sql
