@@ -28,10 +28,34 @@
 
 	<div class="sw_entry_content-page">
 		<?php
+		$theParent = wp_get_post_parent_id( get_the_ID() ) ;
+		if ( $theParent ) {
 
-		if ( wp_get_post_parent_id( get_the_ID() ) ) {
-			echo "INSERT CHILD PAGE NAV";
+			?>
+
+			<div class="breadcrumb">
+				<ul>
+					<li class="breadcrumb_parent">
+						<a href="<?php echo get_permalink($theParent) ?>">
+							<i class="fa fa-home" aria-hidden="true"></i>
+							Back to <?php echo get_the_title($theParent); ?>
+						</a>
+					</li>
+
+				<?php
+
+					$findChildOf = get_the_ID();
+					wp_list_pages(array(
+						'title_li' => '',
+						'child_of' => $theParent
+					)); ?>
+				</ul>
+			</div>
+
+
+			<?php
 		}
+
 		the_content();
 
 		wp_link_pages(

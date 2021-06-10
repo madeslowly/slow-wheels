@@ -106,18 +106,78 @@
 		text-decoration: none
 		padding: 1rem
 
-.current_page_item > a,
-.current-menu-item > a,
-.current_page_ancestor > a,
-.current-menu-ancestor > a
-	&::after
-		content: ""
-		display: flex
-		justify-content: center
-		border-bottom: solid 1px $red
-		width: 30px
-		margin: 10px auto 0
+#primary-menu
+	.sw_entry_content-page,
+	.sw_entry_footer,
+	.sw_comments-wrap
+		a
+			color: $color__link
+			padding: 2px 4px
+			font-weight: 400
+			border: 0 dotted $red
+			border-radius: 2px
 
+			&:hover
+				//border-bottom: 1px solid $red
+				border-style: dotted
+
+			&:hover,
+			&:active,
+			&:focus
+				background-color: #ffeb3b
+
+
+#primary-menu
+	.current_page_item > a,
+	.current-menu-item > a,
+	.current_page_ancestor > a,
+	.current-menu-ancestor > a
+		&::after
+			content: ""
+			display: flex
+			justify-content: center
+			border-bottom: solid 1px $red
+			width: 30px
+			margin: 10px auto 0
+
+.breadcrumb
+
+	margin-top: -5vh
+	//transform: translateY(-1rem)
+	//z-index: 2
+
+	ul
+		list-style-type: none
+		margin: 0
+		padding: 0
+		padding-bottom: 11px
+		overflow: hidden
+
+	li
+		float: left
+		background-color: lighten($racing-green, 10)
+		border: 1px solid lighten($royal-blue, 10)
+		margin-left: 6px
+		@include default-link-trans
+
+		& > a
+			display: block
+			border: none
+			text-decoration: none
+			padding: 1rem
+			color: $pure-white
+
+	li:first-child
+		background-color: $racing-green
+		border-bottom-left-radius: 6px
+		& > a
+			color: $pure-white
+
+	li:last-child
+		border-bottom-right-radius: 6px
+
+	li:hover
+		transform: translateY(2px)
 
 /* Small menu.
 .menu-toggle,
