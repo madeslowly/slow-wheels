@@ -3,30 +3,45 @@ Slow Wheels Wordpress Theme
 
 Wordpress theme developed by [Made Slowly](https://madeslowly.co.uk/). The theme is based on the scaffolding of [`_s`](https://underscores.me/).
 
-**Contributors:** Made Slowly
-**Requires at least:** WordPress 5.4  
-**Tested up to:** WordPress 5.7
-**Requires PHP:** 7.4
-
-**License:** GPLv2 or later  
-**License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
-
 ## Description
 
 This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
 
 ## Using This Theme
 
+## ToC
+
+- [Primary Menu](#primary-menu)
+- [Footer Menu](#footer-menu)
+- [Child Page Menus](#child-page-menus)
+
 ### Navigation
 
-There are three main navigations built into this theme, the primary navigation at the top of the page, the footer naviagtion and a child page only navigation.
+There are three main navigations built into this theme, the primary navigation at the top of the page, the footer navigation and a child page only navigation. Navigation menus are set in `Appearance --> Menus`.
+
+![](/assets/github/images/menu-primary.png)
 
 #### Primary Menu
 
-Primary navigation is the `primary menu` at the top of every page and post. The menu is set in `Appearance --> Menus`
+Primary navigation menu, named `Primary`, is displayed at the top of every page. Submenu items are automatically hidden until users hover over the parent menu item. They are permanently hidden on mobile, see [Child Page Menus](#child-page-menus).
 
-![](/assets/github/images/menu-primary.png)![](/assets/github/images/menu-primary-structure.png)
+#### Footer Menu
 
+Footer menus are `sitemap` and `Downloadable Content`. The sitemap is a complete list of all pages on our website (posts are NOT included). Downloadable Content contains custom links to external content.
+
+#### Child Page Menus
+
+Child pages are pages that have had their parent set in `Page Attributes`
+
+![](/assets/github/images/setting_child.png)
+
+You can see an overview of which pages are treated as parents and which are children in your websites admin area (select `Pages`)
+
+![](/assets/github/images/child_pages.png)
+
+Any page prepended with `-` is a child of the above parent. When viewing any child page, an additional navigation menu containing the parent all it's children is diplayed just below the page heading.
+
+![](/assets/github/images/breadcumb_menu.png)
 
 ## Frequently Asked Questions
 
