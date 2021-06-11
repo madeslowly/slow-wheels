@@ -82,7 +82,7 @@ function slow_wheels_register_scripts() {
 		?>
 		<script>
 			document.addEventListener( 'wpcf7mailsent', function( event ) {
-  			location = '../contact-confirm';
+  			location = '../we-hear-you';
 			}, false );
 		</script>
 		<?php
