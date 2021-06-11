@@ -60,7 +60,7 @@ get_header();
 
 		<section class="sw__container">
 			<div class="sw__mission" data-aos="fade-up">
-				<h2 class="sw__mission--text" ><?php echo get_theme_mod( 'sw_mission_text'); ?></h2>
+				<h2 class="sw__mission--text" ><?php echo get_theme_mod( 'sw_mission_setting'); ?></h2>
 				<div class="h__line"></div></div>
 			<div class="sw__cta">
 				<a data-aos="fade-right" href="/book-session/"><span class="sw__btn sw__btn--bright sw__btn--solid">BOOK A SESSION</span></a>
