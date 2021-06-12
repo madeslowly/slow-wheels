@@ -45,7 +45,7 @@
 		top: 100%
 		z-index: 99999
 		border-radius: 6px
-		background-color: darken($pure-white, 10)
+		background-color: darken($pure-white, 5)
 		transform: translateY(10px)
 		@include default-link-trans
 		display: flex
@@ -140,6 +140,11 @@
 			width: 30px
 			margin: 10px auto 0
 
+	.sub-menu > .current-menu-item > a
+		&::after
+			margin: 10px 0
+
+
 .breadcrumb
 
 	margin-top: -5vh
@@ -156,8 +161,8 @@
 	li
 		float: left
 		background-color: lighten($racing-green, 10)
-		border: 1px solid lighten($royal-blue, 10)
-		margin-left: 6px
+		//border: 1px solid lighten($royal-blue, 10)
+		margin-left: 0px
 		@include default-link-trans
 
 		& > a
@@ -192,6 +197,10 @@
 
 	.main-navigation ul
 		display: flex
+
+	.sub-menu
+		display: none!important
+		visibility: hidden!important
 
 	nav, .menu-primary-menu-container
 		background-color: inherit
