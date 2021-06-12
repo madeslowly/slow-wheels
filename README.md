@@ -3,17 +3,13 @@ Slow Wheels Wordpress Theme
 
 Wordpress theme developed by [Made Slowly](https://madeslowly.co.uk/). The theme is based on the scaffolding of [`_s`](https://underscores.me/).
 
-## Description
-
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
-
 ## Using This Theme
 
 ## ToC
 
 - [Primary Menu](#primary-menu)
 - [Footer Menu](#footer-menu)
-- [Child Page Menus](#child-page-menus)
+- [Parent and Child Menus](#parent-and-child-menus)
 
 ### Navigation
 
@@ -46,35 +42,10 @@ Any page prepended with `-` is a child of the above parent. Parent pages (with p
 This menu is not controlled like the other menus. It is based on the individual settings of each page.  
 
 
-## Frequently Asked Questions
+## Pages and Posts
+
+<img src="/assets/github/images/pages.png" width="auto" height="140"><img src="/assets/github/images/posts.png" width="auto" height="140">
 
 * A question that someone might have?
 
 An answer to that question.
-
-
-## Copyright
-
-Twenty Seventeen WordPress Theme, Copyright 2016 WordPress.org
-Twenty Seventeen is distributed under the terms of the GNU GPL
-
-Twenty Seventeen bundles the following third-party resources:
-
-normalize.css, Copyright 2012-2016 Nicolas Gallagher and Jonathan Neal
-**License:** MIT
-Source: https://necolas.github.io/normalize.css/
-
-Font Awesome icons, Copyright Dave Gandy
-**License:** SIL Open Font License, version 1.1.
-Source: http://fontawesome.io/
-
-Bundled header image, Copyright Alvin Engler
-**License:** CC0 1.0 Universal (CC0 1.0)
-Source: https://unsplash.com/@englr?photo=bIhpiQA009k
-
-## Changelog
-
-### 1.0
-* Released: December 6, 2021
-
-Initial release
