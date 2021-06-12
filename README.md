@@ -33,7 +33,7 @@ Footer menus are `sitemap` and `Downloadable Content`. The sitemap is a complete
 
 Child pages are pages that have had their parent set in `Page Attributes`.
 
-![](/assets/github/images/setting_child.png|width=200px)
+![](/assets/github/images/setting_child.png|width=20px)
 
 You can see an overview of which pages are treated as parents and which are children in your websites admin area (select `Pages`)
 
