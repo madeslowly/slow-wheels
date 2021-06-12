@@ -41,7 +41,7 @@ You can see an overview of which pages are treated as parents and which are chil
 
 Any page prepended with `-` is a child of the above parent. Parent pages (with published child pages) and Child pages will have an automatically generated menu just below the page title.
 
-<img src="/assets/github/images/breadcumb_menu.png" width="auto" height="40">
+<img src="/assets/github/images/breadcumb_menu.png" width="auto" height="140">
 
 This menu is not controlled like the other menus. It is based on the individual settings of each page.  
 
