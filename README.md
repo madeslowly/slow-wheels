@@ -29,11 +29,11 @@ Primary navigation menu, named `Primary`, is displayed at the top of every page.
 
 Footer menus are `sitemap` and `Downloadable Content`. The sitemap is a complete list of all pages on our website (posts are NOT included). Downloadable Content contains custom links to external content.
 
-#### Child Page Menus
+#### Parent and Child Menus
 
-Child pages are pages that have had their parent set in `Page Attributes`
+Child pages are pages that have had their parent set in `Page Attributes`.
 
-![](/assets/github/images/setting_child.png)
+![](/assets/github/images/setting_child.png =200x)
 
 You can see an overview of which pages are treated as parents and which are children in your websites admin area (select `Pages`)
 
