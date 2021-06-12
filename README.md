@@ -19,7 +19,7 @@ This is the long description.  No limit, and you can use Markdown (as well as in
 
 There are three main navigations built into this theme, the primary navigation at the top of the page, the footer navigation and a child page only navigation. Navigation menus are set in `Appearance --> Menus`.
 
-<img src="/assets/github/images/menu-primary.png" width="auto" height="120">
+<img src="/assets/github/images/menu-primary.png" width="auto" height="140">
 
 #### Primary Menu
 
@@ -33,11 +33,11 @@ Footer menus are `sitemap` and `Downloadable Content`. The sitemap is a complete
 
 Child pages are pages that have had their parent set in `Page Attributes`.
 
-<img src="/assets/github/images/setting_child.png" width="auto" height="120">
+<img src="/assets/github/images/setting_child.png" width="auto" height="140">
 
 You can see an overview of which pages are treated as parents and which are children in your websites admin area (select `Pages`)
 
-<img src="/assets/github/images/child_pages.png" width="auto" height="100">
+<img src="/assets/github/images/child_pages.png" width="auto" height="140">
 
 Any page prepended with `-` is a child of the above parent. Parent pages (with published child pages) and Child pages will have an automatically generated menu just below the page title.
 
