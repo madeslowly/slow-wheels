@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main news">
+	<main id="primary" class="sw__page news">
 
 		<?php
 		if ( have_posts() ) :

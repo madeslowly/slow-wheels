@@ -6,12 +6,13 @@
 	justify-content: space-between
 	padding: 0 2rem
 	background-color: $pure-white
+	background-image: linear-gradient(to right, $pure-white , $pure-white )
 	height: $nav-height
 	position: fixed
 	width: 100vw
 	margin: 0
 	top: 0
-	border-bottom: solid 2px rgba($royal-blue, 1)
+	//border-bottom: solid 2px rgba($royal-blue, 1)
 	z-index: 99999
 
 	.custom-logo-link
@@ -70,10 +71,14 @@
 				margin: 10px 0 0
 			//color: $pure-black
 
+
+
 .nav-scrolled
 	height: $nav-scrolled-height
 	box-shadow: 0 1px 8px rgba($royal-blue, 0.1)
 	background-color: $royal-blue
+	background-image: linear-gradient(to right, lighten($royal-blue,30) , $royal-blue )
+
 
 	.menu-item:hover > .sub-menu,
 	.menu-item:focus > .sub-menu
@@ -107,7 +112,7 @@
 		padding: 1rem
 
 #primary-menu
-	.sw_entry_content-page,
+	.sw__page--content,
 	.sw_entry_footer,
 	.sw_comments-wrap
 		a
@@ -146,8 +151,7 @@
 
 
 .breadcrumb
-
-	margin-top: -5vh
+	margin-top: -6vh
 	//transform: translateY(-1rem)
 	//z-index: 2
 
@@ -171,9 +175,11 @@
 			text-decoration: none
 			padding: 1rem
 			color: $pure-white
+	.current_page_item
+		background-color: $racing-green
 
 	li:first-child
-		background-color: $racing-green
+
 		border-bottom-left-radius: 6px
 		& > a
 			color: $pure-white
@@ -220,7 +226,6 @@
 		transition: .5s ease-in-out
 		width: 100vw
 		z-index: -1
-
 
 		li
 			display: none
@@ -284,17 +289,18 @@
 			opacity: 1
 			transform: translateY(0)
 
+	.hidden-on-mobile
+		display: none
 
-
-
-
-
-
+	.breadcrumb
+		li
+			font-size: .7rem
+			line-height: 1
 
 .comment-navigation,
 .posts-navigation,
 .post-navigation
-	.site-main &
+	.sw__page &
 		margin: 0 0 1.5em
 
 	.nav-links

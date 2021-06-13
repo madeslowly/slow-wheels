@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="sw__page">
 		<?php
 		while ( have_posts() ) :
 			the_post();
@@ -23,7 +23,7 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-		<section class="sw__container sw__flexwrap">
+		<section class="sw__container ">
 			<div class="sw__contact--form">
 				<h2 class="sw__header" ><?php echo get_theme_mod( 'contact_page_form_header_setting'); ?></h2>
 				<?php echo do_shortcode("[contact-form-7 id='695' title='Contact form 1']"); ?>

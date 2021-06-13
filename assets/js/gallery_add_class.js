@@ -10,7 +10,7 @@ var windowHeight = window.innerHeight;
 var scrollY = window.scrollY || window.pageYOffset;
 
 window.onload = function() {
-
+  //console.log('gal add class loaded');
   var scrollPosition = scrollY + windowHeight;
 
   for( var i = 0; i < images.length; i++) {

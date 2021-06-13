@@ -18,9 +18,6 @@ if ( ! defined( '_S_VERSION' ) ) {
 // Define Theme Directory URI
 define( 'slow_wheels_uri', get_template_directory_uri() . '/' );
 
-
-// slow_wheels_uri is defined in /functions.php
-
 // Define Theme JS Directory URI
 define( 'slow_wheels_js', slow_wheels_uri . 'assets/js/' );
 
@@ -40,7 +37,7 @@ function slow_wheels_register_styles() {
 
 	wp_enqueue_style( 'fontawesome-free-5.11.2-web', 'https://pro.fontawesome.com/releases/v5.10.0/css/all.css' ) ;
 
-	wp_enqueue_style( 'Quicksand-font', 'https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap' );
+	wp_enqueue_style( 'Quicksand-font', 'https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap' );
 
 	wp_enqueue_style( 'slow-wheels', get_stylesheet_uri(), array(), _S_VERSION , 'all' );
 
@@ -56,8 +53,8 @@ add_action( 'wp_enqueue_scripts', 'slow_wheels_register_styles' );
  */
 function slow_wheels_register_scripts() {
 
-	if ( !is_front_page() && !is_home()) {
-		wp_enqueue_script( 'slow-wheels-move-strapline', slow_wheels_js . 'moveSubheader.js', array(), '', true );
+	if ( !is_front_page() && !is_home() ) {
+		wp_enqueue_script( 'slow-wheels-move-strapline', slow_wheels_js . 'moveStrapline.js', array(), '', false );
 	}
 	wp_enqueue_script( 'slow-wheels-navigation', slow_wheels_js . 'navigation.js', array(), '', true );
 
@@ -290,27 +287,6 @@ function slow_wheels_login_logo() {
 	<?php
 }
 add_action( 'login_enqueue_scripts', 'slow_wheels_login_logo' );
-
-
-// Change admin dashboard Posts to News
-// function slow_wheels_change_post_object() {
-//     $get_post_type = get_post_type_object('post');
-//     $labels = $get_post_type->labels;
-//         $labels->name = 'News';
-//         $labels->singular_name = 'News';
-//         $labels->add_new = 'Add News';
-//         $labels->add_new_item = 'Add News';
-//         $labels->edit_item = 'Edit News';
-//         $labels->new_item = 'News';
-//         $labels->view_item = 'View News';
-//         $labels->search_items = 'Search News';
-//         $labels->not_found = 'No News found';
-//         $labels->not_found_in_trash = 'No News found in Trash';
-//         $labels->all_items = 'All News';
-//         $labels->menu_name = 'News';
-//         $labels->name_admin_bar = 'News';
-// }
-#add_action( 'init', 'slow_wheels_change_post_object' );
 
 // Truncate post thumb text, use `echo $slow_wheels_post_excerpt(30)` in place of the_excerpt()
 function slow_wheels_post_excerpt( $limit ) {

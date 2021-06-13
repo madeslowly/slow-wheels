@@ -1,0 +1,18 @@
+.wp-block-gallery
+  width: 95vw
+  max-width: 800px
+  margin: 0 auto
+
+  .blocks-gallery-item
+    transform: scale(.9)
+    visibility: hidden
+    opacity: 0
+    @include default-trans
+
+    img
+      border-radius: 12px
+
+  .visible
+    transform: scale(1)
+    visibility: visible
+    opacity: 1

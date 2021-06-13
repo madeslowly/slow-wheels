@@ -9,84 +9,38 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<!-- wrapped with
+- .sw__page -->
 
-	<!-- if we dont have a featured image, push content down by $hero-height -->
+<!--
+- .sw__page--header
+- .sw__page--content
+-->
+
+<!-- if we dont have a featured image, push content down by $hero-height -->
+<?php
+if (!has_post_thumbnail()) {
+	echo '<div class="no__feature"></div>';
+}
+
+slow_wheels_post_thumbnail(); ?>
+
+<header class="sw__header">
+	<?php the_title( '<h1 class="page--header">', '</h1>' ); ?>
+</header><!-- .sw__page--header -->
+
+<!-- ID for skip to content -->
+<div id="primaryContent" class="sw__page--content">
+
 	<?php
 
-		if (!has_post_thumbnail()) {
-			echo '<div class="no__feature"></div>';
-		}
-
-	?>
-
-	<?php slow_wheels_post_thumbnail(); ?>
-
-	<header class="">
-		<?php the_title( '<h1 class="sw_page-header">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
-
-	<div class="sw_entry_content-page">
-		<?php
-		$theParent = wp_get_post_parent_id( get_the_ID() ) ;
-		if ( $theParent ) {
-
-			?>
-
-			<div class="breadcrumb">
-				<ul>
-					<li class="breadcrumb_parent">
-						<a href="<?php echo get_permalink($theParent) ?>">
-							<i class="fa fa-home" aria-hidden="true"></i>
-							Back to <?php echo get_the_title($theParent); ?>
-						</a>
-					</li>
-
-				<?php
-
-					$findChildOf = get_the_ID();
-					wp_list_pages(array(
-						'title_li' => '',
-						'child_of' => $theParent
-					)); ?>
-				</ul>
-			</div>
-
-
-			<?php
-		}
-
+	get_template_part('template-parts/child-nav');
+// if its a single page post wrap with .wp-block-group to have consistency with other page widths etc
+	if ( is_single() ) { ?>
+		<div class="wp-block-group"> <?php
+			the_content();?>
+		</div><?php
+	} else {
 		the_content();
-
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'slow-wheels' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
-
-	<?php if ( get_edit_post_link() ) : ?>
-		<footer class="sw_entry_footer">
-			<?php
-			edit_post_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Edit <span class="screen-reader-text">%s</span>', 'slow-wheels' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					wp_kses_post( get_the_title() )
-				),
-				'<span class="edit-link">',
-				'</span>'
-			);
-			?>
-		</footer><!-- .sw_entry_footer -->
-	<?php endif; ?>
-</article><!-- #post-<?php the_ID(); ?> -->
+	}?>
+</div><!-- #primaryContent --><!-- .sw__page--content -->

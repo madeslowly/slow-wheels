@@ -123,45 +123,28 @@ if ( ! function_exists( 'slow_wheels_post_thumbnail' ) ) :
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
-
 		if ( is_singular() ) :
-			?>
+		?>
 
-			<div class="post-thumbnail sw_hero-wrap">
-				<?php the_post_thumbnail(); ?>
-			</div><!-- .post-thumbnail -->
+		<div class="post-thumbnail sw__hero">
+			<?php the_post_thumbnail(); ?>
+		</div><!-- .post-thumbnail -->
 
 		<?php else : ?>
 
-			<a class="post-thumbnail sw_post_thumb" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-				<div class="sw_post_card_wrap-img">
+			<div class="post__card_wrap-img">
 				<?php
-					the_post_thumbnail(
-						'post-thumbnail sw_post_card-img',
-						array(
-							'alt' => the_title_attribute(
-								array(
-									'echo' => false,
-								)
-							),
-						)
-					);
+				the_post_thumbnail(
+					'post-thumbnail post__card-img',
+					array( 'alt' => the_title_attribute(
+						array( 'echo' => false, )	),
+					)
+				);
 				?>
 			</div>
-			<!--</a> close at end of sw_post_card -->
+			<!--</a> close at end of post__card -->
 
 			<?php
 		endif; // End is_singular().
-	}
-endif;
-
-if ( ! function_exists( 'wp_body_open' ) ) :
-	/**
-	 * Shim for sites older than 5.2.
-	 *
-	 * @link https://core.trac.wordpress.org/ticket/12563
-	 */
-	function wp_body_open() {
-		do_action( 'wp_body_open' );
 	}
 endif;

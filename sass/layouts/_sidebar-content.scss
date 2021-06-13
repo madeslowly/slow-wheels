@@ -11,7 +11,7 @@
 	grid-area: header;
 }
 
-.site-main {
+.sw__page {
 	grid-area: main;
 	overflow: hidden; /* Resolves issue with <pre> elements forcing full width. */
 }

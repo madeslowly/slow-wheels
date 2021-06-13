@@ -60,20 +60,19 @@
 		</p>
 
 	</div><!-- .site-info -->
-</footer>
-</div><!-- #page -->
+</footer><!-- .site-footer -->
+
 
 <?php wp_footer(); ?>
 
 
 <script>
 
-AOS.init({
-duration: 600,
-easing: 'ease-in-out-cubic',
-disable: 'mobile'
-
-});
+	AOS.init({
+	duration: 600,
+	easing: 'ease-in-out-cubic',
+	disable: 'mobile'
+	});
 
 </script>
 

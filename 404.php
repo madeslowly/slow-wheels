@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="sw__page">
 
 		<section class="error-404 not-found">
 			<header class="page-header">

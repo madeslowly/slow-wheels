@@ -14,7 +14,7 @@
 	<header class="">
 		<?php
 		if ( is_singular() ) :
-			the_title( '<h1 class="sw_page-header">', '</h1>' );
+			the_title( '<h1 class="sw__page--header">', '</h1>' );
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
@@ -32,7 +32,7 @@
 
 	<?php slow_wheels_post_thumbnail(); ?>
 
-	<div class="sw_entry_content-page">
+	<div class="sw__page--content">
 		<?php
 		the_content(
 			sprintf(

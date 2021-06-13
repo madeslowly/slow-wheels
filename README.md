@@ -44,8 +44,8 @@ This menu is not controlled like the other menus. It is based on the individual 
 
 ## Pages and Posts
 
+A list of all your pages and posts can be found in the admin area. In some case, a page or post, listed, may not actually be published if it is set as a `draft`. This is useful when creating a new page or post over a prolonged period.
+
 <img src="/assets/github/images/pages.png" width="auto" height="140"><img src="/assets/github/images/posts.png" width="auto" height="140">
 
-* A question that someone might have?
-
-An answer to that question.
+### Creating and Editing a Page
