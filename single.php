@@ -32,6 +32,7 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
+	</div><!-- #primaryContent --><!-- .sw__page--content -->
 
 	</main><!-- #main -->
 

@@ -35,7 +35,8 @@ slow_wheels_post_thumbnail(); ?>
 	<?php
 
 	get_template_part('template-parts/child-nav');
-// if its a single page post wrap with .wp-block-group to have consistency with other page widths etc
+
+	// if its a single page post wrap with .wp-block-group to have consistency with other page widths etc
 	if ( is_single() ) { ?>
 		<div class="wp-block-group"> <?php
 			the_content();?>
@@ -43,4 +44,3 @@ slow_wheels_post_thumbnail(); ?>
 	} else {
 		the_content();
 	}?>
-</div><!-- #primaryContent --><!-- .sw__page--content -->
