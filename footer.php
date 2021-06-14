@@ -46,7 +46,7 @@
 
 		<div class="">
 			<div class="sign__up">
-				<h3>Stay in the Know</h3>
+				<h3>Newsletter Sign Up</h3>
 				<?php echo do_shortcode('[sibwp_form id=1]'); ?>
 			</div>
 		</div>
