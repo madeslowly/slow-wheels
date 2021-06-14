@@ -50,6 +50,7 @@ o .sw__page--content
 
 	endif;
 	?>
+</div><!-- #primaryContent --><!-- .sw__page--content -->
 
 </main><!-- #post-<?php the_ID(); ?> --><!-- .sw__page -->
 
