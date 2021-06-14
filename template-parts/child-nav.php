@@ -1,6 +1,6 @@
 <?php
 /**
- * Determine if oage is parent with children or page is a child and display Parent/Child navbar
+ * Determine if page is parent with children or page is a child and display Parent/Child navbar
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *

@@ -6,7 +6,7 @@
 	justify-content: space-between
 	padding: 0 2rem
 	background-color: $pure-white
-	background-image: linear-gradient(to right, $pure-white , $pure-white )
+	//background-image: linear-gradient(to right, $pure-white , $pure-white )
 	height: $nav-height
 	position: fixed
 	width: 100vw
@@ -14,6 +14,7 @@
 	top: 0
 	//border-bottom: solid 2px rgba($royal-blue, 1)
 	z-index: 99999
+	background-color: $pure-white
 
 	.custom-logo-link
 		max-width: $nav-height *.7
@@ -72,12 +73,22 @@
 			//color: $pure-black
 
 
+@keyframes gradient
+	0%
+		background-position: 0% 50%
+
+	100%
+		background-position: 100% 50%
+
 
 .nav-scrolled
 	height: $nav-scrolled-height
 	box-shadow: 0 1px 8px rgba($royal-blue, 0.1)
-	background-color: $royal-blue
-	background-image: linear-gradient(to right, lighten($royal-blue,30) , $royal-blue )
+	//background-color: $royal-blue
+	background: linear-gradient(90deg, lighten($royal-blue,30) , $royal-blue )
+	background-size: 100% 100%
+	background-position: 0% 50%
+	animation: gradient 2s ease forwards
 
 
 	.menu-item:hover > .sub-menu,
