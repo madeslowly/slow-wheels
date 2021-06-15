@@ -14,8 +14,10 @@ Gemfile.lock
 
 composer.json
 
-package.json
+package-lock.json
 
 phpcs.xml.dist
 
 *.sql
+
+node_modules
