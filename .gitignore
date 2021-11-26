@@ -20,4 +20,6 @@ phpcs.xml.dist
 
 *.sql
 
+*.zip
+
 node_modules
