@@ -1,6 +1,7 @@
 .git/
 sass
 .sass-cache/
+.sass-lint.yml
 .travis.yml
 bluehost.enc
 Gemfile
@@ -11,3 +12,14 @@ README.md
 .gitmodules
 _scripts/
 .DS_Store
+node_modules/
+phpcs.xml.dist
+rsync-exclusions.txt
+.eslintrc
+composer.json
+.stylelintrc.json
+customizer.css.map
+digitalocean.enc
+style.css.map
+package-lock.json
+package.json
