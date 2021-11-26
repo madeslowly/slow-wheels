@@ -21,6 +21,6 @@ addons:
 script:
 
 - sass --update sass:. --style=compressed
-- rm .gitignore .sass-lint.yml README.md digitalocean.enc readme.txt rsync-exclusions.txt one_sftp.sh
+- rm .gitignore .sass-lint.yml README.md digitalocean.enc readme.txt rsync-exclusions.txt
 - rm -r sass
 - chmod +x one_sftp.sh
