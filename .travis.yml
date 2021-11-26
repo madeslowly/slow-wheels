@@ -23,7 +23,7 @@ script:
 - sass --update sass:. --style=compressed
 - rm .gitignore .sass-lint.yml README.md digitalocean.enc readme.txt rsync-exclusions.txt
 - rm -r sass
-- sshpass -p '$one_sftp_pwd' sftp $one_usr@$one_sftp:staging/wp-content/themes<<EOF
+-sshpass -p '$one_sftp_pwd' sftp $one_usr@$one_sftp:staging/wp-content/themes<<EOF
 - put -r slow-wheels
 - bye
 - EOF
