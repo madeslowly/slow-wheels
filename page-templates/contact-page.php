@@ -42,7 +42,7 @@ get_header();
 
 		</section>
 
-		<section class="sw__container">
+		<section id="howToFindUs" class="sw__container">
 			<div class="sw__contact--address sw__flexbox--element">
 				<h2 class="sw_content--header" ><?php echo get_theme_mod( 'contact_page_address_header_setting'); ?></h2>
 				<p><?php echo get_theme_mod( 'contact_page_address_line_1_setting'); ?></p>
@@ -53,19 +53,15 @@ get_header();
 
 				<!-- workaround, need a way of passing controll to user but i dont know how best -->
 				<div class="sw__contact--map">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2470.7594784848657!2d-1.1893538843082319!3d51.73743447967362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876c1a39d6c1b19%3A0xa4f5d710cf9f5e52!2sHorspath%20Athletics%20and%20Sports%20Ground!5e0!3m2!1sen!2suk!4v1623663986559!5m2!1sen!2suk" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2470.7594784848657!2d-1.1893538843082319!3d51.73743447967362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876c1a39d6c1b19%3A0xa4f5d710cf9f5e52!2sHorspath%20Athletics%20and%20Sports%20Ground!5e0!3m2!1sen!2suk!4v1623663986559!5m2!1sen!2suk" width="800" height="600" style="display: block; border:0" allowfullscreen="" loading="lazy"></iframe>
 				</div>
 			</div>
 		</section>
 
 		<section class="sw__container">
-			<div class="sw__mission" data-aos="fade-up">
-				<h2 class="sw__mission--text" ><?php echo get_theme_mod( 'sw_mission_setting'); ?></h2>
-				<div class="h__line"></div></div>
-			<div class="sw__cta">
-				<a data-aos="fade-right" href="/book-session/"><span class="sw__btn sw__btn--bright sw__btn--solid">BOOK A SESSION</span></a>
-				<a data-aos="fade-left" href=""><span class="sw__btn sw__btn--mute sw__btn--wire">GET MORE INFO</span></a>
-			</div>
+
+			<?php	get_template_part( 'template-parts//site-cta' ) ?>
+
 		</section>
 
 	</main><!-- #main -->
