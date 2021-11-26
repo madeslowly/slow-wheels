@@ -35,7 +35,7 @@ function slow_wheels_register_styles() {
 
 	wp_enqueue_style( 'animate-on-scroll', 'https://unpkg.com/aos@next/dist/aos.css' );
 
-	wp_enqueue_style( 'fontawesome-free-5.11.2-web', 'https://pro.fontawesome.com/releases/v5.10.0/css/all.css' ) ;
+	wp_enqueue_style( 'fontawesome-free-5.15.3', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' ) ;
 
 	wp_enqueue_style( 'Quicksand-font', 'https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap' );
 
@@ -126,8 +126,8 @@ if ( ! function_exists( 'slow_wheels_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'slow-wheels' ),
-				'Sitemap' => __( 'Sitemap' ),
+				'priary-menu' => esc_html__( 'Primary', 'slow-wheels' ),
+				'useful-links' => __( 'Useful Links' ),
 				'downloadable-content' => __( 'Downloadable Content' )
 			)
 		);
@@ -489,3 +489,15 @@ function slow_wheels_move_comment_field_to_bottom( $fields ) {
     return $fields;
 }
 add_filter( 'comment_form_fields', 'slow_wheels_move_comment_field_to_bottom' );
+
+/**
+* Make Private Posts visible to Subscribers
+* Typically only visible to admin or editor
+*/
+
+function slow_wheels_private_posts_subscribers(){
+	$subRole = get_role( 'subscriber' );
+	$subRole -> add_cap( 'read_private_posts' );
+	$subRole -> add_cap( 'read_private_pages' );
+}
+add_action( 'init', 'slow_wheels_private_posts_subscribers' );
