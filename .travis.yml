@@ -23,4 +23,7 @@ script:
 - sass --update sass:. --style=compressed
 - rm .gitignore .sass-lint.yml README.md digitalocean.enc readme.txt rsync-exclusions.txt
 - rm -r sass
-- chmod +x one_sftp.sh
+
+deploy:
+  provider: script
+  script: bash one_sftp.sh $one_sftp_pwd $one_usr $one_sftp
