@@ -27,3 +27,5 @@ script:
 deploy:
   provider: script
   script: bash one_sftp.sh $one_sftp_pwd $one_usr $one_sftp
+  on:
+    all_branches: true
