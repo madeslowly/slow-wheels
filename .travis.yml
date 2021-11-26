@@ -19,13 +19,9 @@ addons:
     - sshpass
 
 script:
-
 - sass --update sass:. --style=compressed
 - rm .gitignore .sass-lint.yml README.md digitalocean.enc readme.txt rsync-exclusions.txt
 - rm -r sass
 
-deploy:
-  provider: script
-  script: bash one_sftp.sh $one_sftp_pwd $one_usr $one_sftp
-  on:
-    all_branches: true
+after_success:
+- ./one_sftp.sh
