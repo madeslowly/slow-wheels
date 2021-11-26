@@ -3,7 +3,6 @@ arch: arm64-graviton2
 group: edge
 language: sass
 cache: bundler
-gemfile: Gemfile
 
 branches:
   only:
@@ -11,14 +10,11 @@ branches:
 rvm:
 - 2.6
 
-
 before_install:
 - gem install sass
 
 script:
-- gem install bundler
-- bundle update
-- bundle install
+
 - sass --update sass:. --style=compressed
 - rm .gitignore .sass-lint.yml README.md digitalocean.enc readme.txt rsync-exclusions.txt
 - rm -r sass
