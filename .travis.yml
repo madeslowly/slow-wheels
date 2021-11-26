@@ -13,22 +13,16 @@ rvm:
 
 
 before_install:
-
-- openssl aes-256-cbc -K $encrypted_d6ba8bb01fde_key -iv $encrypted_d6ba8bb01fde_iv -in digitalocean.enc -out /tmp/digitalocean -d
-- eval "$(ssh-agent -s)"
-- chmod 600 /tmp/digitalocean
-- ssh-add /tmp/digitalocean
 - gem install sass
-
-addons:
-  ssh_known_hosts: 188.166.156.227
 
 script:
 - gem install bundler
 - bundle update
 - bundle install
 - sass --update sass:. --style=compressed
-- rsync -r -e ssh\ -i\ /tmp/digitalocean --exclude-from='rsync-exclusions.txt' $TRAVIS_BUILD_DIR/ $wfa_do_username@${do_ip}:/var/www/subdomains/wfa/wp-content/themes/slow-wheels
-
-
-#- rsync -r -e ssh\ -i\ /tmp/bluehost --exclude-from='rsync-exclusions.txt' $TRAVIS_BUILD_DIR/ $bluehost_username@ydn.wpm.mybluehost.me:public_html/madeslowly.xyz/wfa/wp-content/themes/slow-wheels
+- rm .gitignore .sass-lint.yml README.md digitalocean.enc readme.txt rsync-exclusions.txt
+- rm -r sass
+- sshpass -p '$one_sftp_pwd' sftp $one_usr@$one_sftp:staging/wp-content/themes <<EOF
+- put -r slow-wheels
+- bye
+- EOF
