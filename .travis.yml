@@ -13,6 +13,11 @@ rvm:
 before_install:
 - gem install sass
 
+addons:
+  apt:
+    packages:
+    - sshpass
+    
 script:
 
 - sass --update sass:. --style=compressed
