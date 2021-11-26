@@ -1,31 +1,44 @@
-.site-footer
+.sw__footer
 	display: block
-	justify-content: center
-	align-items: center
-	background-color: $royal-blue
+	background-color: $pure-white
+	color: $pure-black
 
-	.footer-naviagtion
+	.footer__naviagtion
 		display: flex
 		flex-direction: row
-		justify-content: space-around
+		justify-content: space-between
 		flex-wrap: wrap
 		padding: 2rem 5vw
 
 		& > h1,h2,h3,h4
-			color: $pure-white
-			font-weight: 400
+			color: $red
+			font-weight: 600
 
 		ul
 			list-style: none
-			padding: 0 0 0 .6rem
+			padding: 0
 			margin: 0
 
 		li
 			margin: .6rem 0
 
-		.sub-menu
-			//display: none
-			text-indent: .6rem
+	#menu-useful-links
+		li
+
+			&::before
+				display: inline-block
+				font-style: normal
+				font-variant: normal
+				text-rendering: auto
+				-webkit-font-smoothing: antialiased
+				font-family: "Font Awesome 5 Free"
+				font-weight: 600
+				content: "\f101"
+				color: $perfect-grey
+				font-size: .6rem
+				transform: translateY(-.2rem)
+				padding-right: .6rem
+
 
 	.site-info
 		display: flex
@@ -35,18 +48,21 @@
 		margin: 0 5vw
 		padding: 1rem 0
 		font-size: .8rem
-		color: $white
+		color: $royal-blue
 		border-top: solid 1px lighten( $royal-blue , 10 )
 
 		& > *
 			margin: 0
 
-	.sitemap,
+	.useful__links,
 	.downloadables
 		//width: 20%
 
 	.sponsors
 		text-align: center
+
+		h1, h2, h3, h4, h5, h6
+			color: $pure-white
 
 		.gallery
 			padding-top: 2rem
@@ -55,7 +71,7 @@
 		img
 			object-fit: contain!important
 			width: 200px!important
-			filter: brightness(0) invert(.2)
+			filter: brightness(0) invert(1)
 			padding: 1rem
 			border-radius: 16px
 			background-color: transparent
@@ -66,6 +82,23 @@
 				//background-color: $pure-white
 
 .footer-header
+	color: $pure-white
 	padding: 2rem 5vw
-	background-color: lighten($royal-blue, 70)
-	border-top: 1px solid $royal-blue
+	background-color: rgb(36, 39, 54)
+	//border-top: 1px solid $royal-blue
+
+.sib_signup_form
+
+	div
+		display: flex
+
+	input
+		border-top-right-radius: 0
+		border-bottom-right-radius: 0
+		border-color: $royal-blue
+
+	button
+		font-size: 1rem
+		padding: 3px
+		border-top-left-radius: 0
+		border-bottom-left-radius: 0
