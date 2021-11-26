@@ -11,7 +11,7 @@
 
 ?>
 
-<footer class="site-footer">
+<footer class="sw__footer">
 	<div class="footer-header">
 		<div class="sponsors">
 			<h1>Our Friends and Sponsors</h1>
@@ -19,14 +19,14 @@
 		</div>
 	</div>
 
-	<div class="footer-naviagtion">
-		<div class="sitemap">
-			<h3>Sitemap</h3>
+	<div class="footer__naviagtion">
+		<div class="useful-links">
+			<h3>Useful Links</h3>
 			<?php
 				wp_nav_menu(
 					array(
-						'theme_location' => 'sitemap',
-						'container_class' => 'sitemap-menu'
+						'theme_location' => 'useful-links',
+						'container_class' => 'footer__menu--highlight'
 					)
 				);
 			?>
@@ -38,7 +38,7 @@
 				wp_nav_menu(
 					array(
 						'theme_location' => 'downloadable-content',
-						'container_class' => 'downloadable-content-menu'
+						'container_class' => 'footer__menu'
 					)
 				);
 			?>
@@ -60,7 +60,7 @@
 		</p>
 
 	</div><!-- .site-info -->
-</footer><!-- .site-footer -->
+</footer><!-- .sw__footer -->
 
 
 <?php wp_footer(); ?>
